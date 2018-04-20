@@ -8,7 +8,7 @@
 
 #import "EHOMEBaseObject.h"
 #import "EHOMETcpClient.h"
-#import <CocoaAsyncSocket/GCDAsyncSocket.h>
+#import <CocoaAsyncSocket/GCDAsyncUdpSocket.h>
 
 typedef void(^TCPBlock)(GCDAsyncSocket *sock, NSString *data);
 

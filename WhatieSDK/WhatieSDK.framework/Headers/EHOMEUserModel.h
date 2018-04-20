@@ -95,28 +95,10 @@
 +(void)setCurrentUserWithUserModel:(EHOMEUserModel *)userModel;
 
 
-+(void)registerNewUserWithEmail:(NSString *)email
-                       password:(NSString *)passwordMD5
-                       accessId:(NSString *)accessId
-                      accessKey:(NSString *)accessKey
-                     startBlock:(startBlock)startblock
-                   successBlock:(successBlock)successblock
-                      failBlock:(failBlock)failblock;
-
-
-/**
- Login with Email
- 
- @param email : the account to login in.
- @param password : the password to login in, it should be encrypted by MD5
- 
- @blocks :
- The startblock means function has been begining,you can add some loading action here.
- The values will be returned as successblock if success.
- The error info will be also returned as faileblock if failed.
- */
 +(void)loginWithEmail:(NSString *)email
-             password:(NSString *)password
+             password:(NSString *)passwordMD5
+             accessId:(NSString *)accessId
+            accessKey:(NSString *)accessKey
            startBlock:(startBlock)startblock
          successBlock:(successBlock)successblock
             failBlock:(failBlock)failblock;
@@ -127,39 +109,19 @@
  
  If user want to logout,do this.
  */
-+(void)logoutWithStartBlock:(startBlock)startblock
-               successBlock:(successBlock)successblock
-                  failBlock:(failBlock)failblock;
++(void)logoutWithAccessId:(NSString *)accessId
+                accessKey:(NSString *)accessKey
+               startBlock:(startBlock)startblock
+             successBlock:(successBlock)successblock
+                failBlock:(failBlock)failblock;
 
 
-/**
- GetUserInfo
- 
- If user isLogin,you can get user detail info with this way.
- */
-+(void)getUserInfoWithStartBlock:(startBlock)startblock
-                    successBlock:(successBlock)successblock
-                       failBlock:(failBlock)failblock;
-
-/**
- UpdateUserName
- 
- If user want to change name,such as nickName.key new name just.
- */
-+(void)updateUserNameWithName:(NSString *)name
-                   startBlock:(startBlock)startblock
-                 successBlock:(successBlock)successblock
-                    failBlock:(failBlock)failblock;
-
-/**
- UpdateUserPortrait
- 
- If user want to change portrait,do this,input an image as UIImage.
- */
-+(void)updateUserPortraitWithImage:(UIImage *)image
-                        startBlock:(startBlock)startblock
-                      successBlock:(successBlock)successblock
-                         failBlock:(failBlock)failblock;
++(void)updateLoginPasswordWithEmail:(NSString *)email
+                     OldPasswordMD5:(NSString *)oldPasswordMD5
+                     newPasswordMD5:(NSString *)newPasswordMD5
+                         startBlock:(startBlock)startblock
+                       successBlock:(successBlock)successblock
+                          failBlock:(failBlock)failblock;
 
 
 @end
