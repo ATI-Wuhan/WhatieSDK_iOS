@@ -16,7 +16,7 @@ WhatieSDK is an SDK provided by ATI TECHNOLOGY (WUHAN) CO.,LTD for third party a
 first install using CocoaPods by adding this line to your Podfile:
 `pod 'WhatieSDK',:git => 'https://github.com/IIDreams/WhatieSDK.git'`
 then
-`pod install或pod install --no-repo-update`
+`pod install or pod install --no-repo-update`
 Importing:
 `#import <WhatieSDK/WhatieSDK.h>`
 
