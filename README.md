@@ -220,5 +220,5 @@ The sharing device is coordinated by the device owner and the shared person. Thi
 * Email : zhouwei20150901@icloud.com
 
 ## LICENSE
-WahtieSDK use MIT LICENSE, LICENSE file detail.
+WhatieSDK use MIT LICENSE, LICENSE file detail.
 
