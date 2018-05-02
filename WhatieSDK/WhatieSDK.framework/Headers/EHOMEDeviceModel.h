@@ -20,7 +20,7 @@
 @property (nonatomic, strong) Device *device;
 @property (nonatomic, strong) NSArray <Function *> *functionList;
 @property (nonatomic, strong) FunctionValuesMap *functionValuesMap;
-@property (nonatomic, assign) int host;// = 1;
+@property (nonatomic, assign) BOOL host;// = true;
 
 
 
@@ -33,8 +33,14 @@
  The successblock returns the devices with <EHOMEDeviceModel *> array.
  */
 +(void)getMyDeviceListWithStartBlock:(startBlock)startblock
-                        successBlock:(successBlock)successblock
-                           failBlock:(failBlock)failblock;
+                      successBlock:(successBlock)successblock
+                         failBlock:(failBlock)failblock;
+
++(void)getStartedWithDevId:(NSString *)devId
+                deviceName:(NSString *)deviceName
+                startBlock:(startBlock)startblock
+              successBlock:(successBlock)successblock
+                 failBlock:(failBlock)failblock;
 
 /**
  UpdateDeviceName
@@ -47,7 +53,7 @@
 +(void)updateDeviceNameWithDeviceModel:(EHOMEDeviceModel *)deviceModel
                                   name:(NSString *)name
                             startBlock:(startBlock)startblock
-                          suucessBlock:(successBlock)successblock
+                          successBlock:(successBlock)successblock
                              failBlock:(failBlock)failblock;
 
 /**
@@ -59,7 +65,7 @@
  */
 +(void)unBindDeviceWithDeviceModel:(EHOMEDeviceModel *)deviceModel
                         startBlock:(startBlock)startblock
-                      suucessBlock:(successBlock)successblock
+                      successBlock:(successBlock)successblock
                          failBlock:(failBlock)failblock;
 
 
@@ -77,18 +83,21 @@
  @param sharedUserId : who the device shared to
  @param deviceId : EHOMEDeviceModel.device.id
  @param timestamp : timestamp unit to ms
- @param accessId : accessId
- @param accessKey : accessKey
+
  */
 +(void)sharedDeviceWithAdminUserId:(int)adminUserId
                       sharedUserId:(int)sharedUserId
                           deviceId:(int)deviceId
                          timestamp:(long)timestamp
-                          accessId:(NSString *)accessId
-                         accessKey:(NSString *)accessKey
                         startBlock:(startBlock)startblock
                       suucessBlock:(successBlock)successblock
                          failBlock:(failBlock)failblock;
+
++(void)switchDeviceStatusWithDeviceModel:(EHOMEDeviceModel*)deviceModel
+                                toStatus:(BOOL)isOn
+                              startBlock:(startBlock)startblock
+                            successBlock:(successBlock)successblock
+                               failBlock:(failBlock)failblock;
 
 
 @end
@@ -115,7 +124,7 @@
 @property (nonatomic, strong) Product *product;
 @property (nonatomic, copy) NSString *secKey;// = "<null>";
 @property (nonatomic, assign) int sellerId;// = 14;
-@property (nonatomic, copy) NSString *status;// = "\U79bb\U7ebf";
+@property (nonatomic, copy) NSString *status;// = "Offline","Normal","Upgrading";
 @property (nonatomic, copy) NSString *token;// = "<null>";
 @property (nonatomic, assign) long long updateTime;// = 1523522816000;
 @property (nonatomic, assign) int uuid;// = 5;

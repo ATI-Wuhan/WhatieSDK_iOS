@@ -6,7 +6,7 @@
 //  Copyright © 2018年 IIDreams. All rights reserved.
 //
 
-#import "EHOMEBaseObject.h"
+#import <WhatieSDK/WhatieSDK.h>
 
 @class EHOMEPhotoModel;
 
@@ -94,11 +94,20 @@
  */
 +(void)setCurrentUserWithUserModel:(EHOMEUserModel *)userModel;
 
-
+/**
+ Login
+ 
+ When user login APP,this function must be used.
+ 
+ @param email : use's email
+ @param passwordMD5 : password to login which encrypted with MD5
+ 
+ @blocks:
+ successblock : return the value if login success
+ faileblock: return the reason if login failed
+ */
 +(void)loginWithEmail:(NSString *)email
              password:(NSString *)passwordMD5
-             accessId:(NSString *)accessId
-            accessKey:(NSString *)accessKey
            startBlock:(startBlock)startblock
          successBlock:(successBlock)successblock
             failBlock:(failBlock)failblock;
@@ -109,15 +118,24 @@
  
  If user want to logout,do this.
  */
-+(void)logoutWithAccessId:(NSString *)accessId
-                accessKey:(NSString *)accessKey
-               startBlock:(startBlock)startblock
++(void)logoutWithStartBlock:(startBlock)startblock
              successBlock:(successBlock)successblock
                 failBlock:(failBlock)failblock;
 
 
-+(void)updateLoginPasswordWithEmail:(NSString *)email
-                     OldPasswordMD5:(NSString *)oldPasswordMD5
+/**
+ UpdateLoginPassword
+ 
+ Set new password by old password and email.
+
+ @param oldPasswordMD5 : old password encrypted by MD5
+ @param newPasswordMD5 : new password encrypted by MD5
+ 
+ @blocks:
+ successblock
+ 
+ */
++(void)updateLoginPasswordOldPasswordMD5:(NSString *)oldPasswordMD5
                      newPasswordMD5:(NSString *)newPasswordMD5
                          startBlock:(startBlock)startblock
                        successBlock:(successBlock)successblock

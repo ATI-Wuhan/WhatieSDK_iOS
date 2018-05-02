@@ -19,6 +19,7 @@
 
 -(void)smartConfigWithWifiPassword:(NSString *)wifiPassword
                         startBlock:(startBlock)startblock
+                     progressBlock:(progressBlock)progressblock
                       successBlock:(successBlock)successblock
                          failBlock:(failBlock)failblock;
 

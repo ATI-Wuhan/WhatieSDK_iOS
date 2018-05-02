@@ -6,13 +6,24 @@
 //  Copyright © 2018年 IIDreams. All rights reserved.
 //
 
+
+
 #import "EHOMEBaseObject.h"
 #import "EHOMEDeviceModel.h"
+
+@protocol MQTTDelegate <NSObject>
+
+@optional
+-(void)didRecivedMQTTData:(NSData *)data;
+
+@end
 
 typedef void(^MQTTBlock)(NSData *data);
 typedef void(^MQTTStatusBlock)(NSString *status);
 
 @interface EHOMEMQTTClientManager : EHOMEBaseObject
+
+@property (nonatomic, assign) id <MQTTDelegate> delegate;
 
 
 @property (nonatomic, copy) MQTTBlock mqttBlock;
@@ -33,15 +44,11 @@ typedef void(^MQTTStatusBlock)(NSString *status);
 -(void)loginMQTT;
 
 
--(void)turnOnDeviceWithDeviceModel:(EHOMEDeviceModel *)deviceModel
-                        startBlock:(startBlock)startblock
-                      successBlock:(successBlock)successblock
-                         failBlock:(failBlock)failblock;
-
--(void)turnOffDeviceWithDeviceModel:(EHOMEDeviceModel *)deviceModel
-                         startBlock:(startBlock)startblock
-                       successBlock:(successBlock)successblock
-                          failBlock:(failBlock)failblock;
+-(void)switchDeviceStatusWithDeviceModel:(EHOMEDeviceModel *)deviceModel
+                                  status:(BOOL)status
+                              startBlock:(startBlock)startblock
+                            successBlock:(successBlock)successblock
+                               failBlock:(failBlock)failblock;
 
 
 /**
