@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "WhatieSDK"
-  s.version      = "1.0.5"
+  s.version      = "1.0.6"
   s.summary      = "WhatieSDK is provided by ATI TECHNOLOGY (WUHAN) CO.,LTD."
 
   # This description is used to generate tags and improve search results.
@@ -135,10 +135,6 @@ Pod::Spec.new do |s|
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"
-  s.dependency "PPNetworkHelper"
-  s.dependency "MJExtension"
-  s.dependency "MQTTClient", "~> 0.13.0"
-  s.dependency "CocoaAsyncSocket"
-  s.dependency "EspTouch"
+
 
 end
