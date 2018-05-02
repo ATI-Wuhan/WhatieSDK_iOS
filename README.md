@@ -47,7 +47,8 @@ The SDK should be init before any function will be used.This init work was recom
 The use of all methods is done by EHOMEUserModel class.
 And the EHOMEUserModel includes attributes:
 ```objc
-/**  The unique ID of user, called userId.  It's very important.And it is used everywhere.  */ @property (nonatomic, assign) int id;
+/**  The unique ID of user, called userId.  It's very important.And it is used everywhere.  */ 
+@property (nonatomic, assign) int id;
 
 /**  The email of user,which can login in app with password together  such as:zhouwei2015@whut.edu.cn  */
 
