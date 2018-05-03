@@ -19,7 +19,7 @@ then
 
 ### Installation with CocoaPods:
 first install using CocoaPods by adding this line to your Podfile:
-`pod 'WhatieSDK',:git => 'https://github.com/IIDreams/WhatieSDK.git'`
+`pod 'WhatieSDK',:git => 'https://github.com/IIDreams/WhatieSDK_iOS.git'`
 then
 `pod install or pod install --no-repo-update`
 Importing:
