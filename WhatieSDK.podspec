@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
   					The SDK only support operations on WiFi electronics outlets. The main function points of the SDK include: finding electronics outlets nearby, electronics outlets turn-on or turn-off, unbinding associated electronics outlets, sharing your electronics outlets by QRCode, and so on. Note that, room settings, smart scenarios settings and timer settings will be not included in the first version of the SDK. These function points, and other more, can be provided via updating SDK remotely in latest versions.
                    DESC
 
-  s.homepage     = "https://github.com/IIDreams/WhatieSDK"
+  s.homepage     = "https://github.com/IIDreams/WhatieSDK_iOS"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -91,7 +91,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "WhatieSDK/WhatieSDK.framework/Headers/WhatieSDK.h"
+  s.source_files  = "WhatieSDK/WhatieSDK.framework/Headers/*.{h}"
   # s.exclude_files = "Classes/Exclude"
   s.vendored_frameworks = 'WhatieSDK/WhatieSDK.framework'
 
