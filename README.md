@@ -261,6 +261,30 @@ The sharing device is coordinated by the device owner and the shared person. Thi
 }];
 ```
 
+#### 6.6 Countdown
+Control your device when countdown is finished.
+```
+[EHOMEDeviceModel countdownDeviceWithDeviceModel:deviceModel toStatus:isOn duration:10 startBlock:^{
+
+} successBlock:^(id responseObject) {
+
+} failBlock:^(NSError *error) {
+
+}];
+```
+
+#### 6.7 AddTimer
+Control your device when time is ready.
+```
+[EHOMEDeviceModel addTimerClockWithDeviceModel:deviceModel days:@"0010000" finishTime:@"1857" isOn:YES startBlock:^{
+
+} successBlock:^(id responseObject) {
+
+} failBlock:^(NSError *error) {
+
+}];
+```
+
 ## Contact Us:
 * iOS Contributors: Yiran Ding, Wei Zhou, Linjun Chen
 * Email : zhouwei20150901@icloud.com
