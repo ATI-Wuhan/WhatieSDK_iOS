@@ -25,7 +25,7 @@ then
 Importing:
 `#import <WhatieSDK/WhatieSDK.h>`
 
-If the result of "pod search WahtieSDK" is not latest,run "pod setup" in terminal to update local spec.
+If the result of "pod search WhatieSDK" is not latest,run "pod setup" in terminal to update local spec.
 
 ## Usage
 ### 1. SDK Init
