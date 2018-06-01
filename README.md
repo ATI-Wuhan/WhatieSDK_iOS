@@ -3,6 +3,13 @@
 
 ## WahtieSDK Version 1.1 updated at 2018-06-01
 
+```
+What's new:
+1.Add Countdown function
+2.Add SetTimer function
+3.Fix some bugs when scan QRCode to share device
+```
+
 WhatieSDK is an SDK provided by ATI TECHNOLOGY (WUHAN) CO.,LTD for third party access to IOT platform quickly. Through this SDK, users can register and log in, find and add devices such as nearby smart sockets, and control device switches.
 
 
@@ -263,7 +270,7 @@ The sharing device is coordinated by the device owner and the shared person. Thi
 
 #### 6.6 Countdown
 Control your device when countdown is finished.
-```
+```objc
 [EHOMEDeviceModel countdownDeviceWithDeviceModel:deviceModel toStatus:isOn duration:10 startBlock:^{
 
 } successBlock:^(id responseObject) {
@@ -275,7 +282,7 @@ Control your device when countdown is finished.
 
 #### 6.7 AddTimer
 Control your device when time is ready.
-```
+```objc
 [EHOMEDeviceModel addTimerClockWithDeviceModel:deviceModel days:@"0010000" finishTime:@"1857" isOn:YES startBlock:^{
 
 } successBlock:^(id responseObject) {
