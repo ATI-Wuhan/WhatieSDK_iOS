@@ -5,13 +5,14 @@
 
 ```
 What's new:
-Easy to build your smart home with us.
+All APIs for electrical outlets. SDKs for bulbs will be provided about June 6 or 7, 2018. 
+Note: it's better to review all details on June 7. 
 ```
 
-WhatieSDK is an SDK provided by ATI TECHNOLOGY (WUHAN) CO.,LTD for third party access to IOT platform quickly. Through this SDK, users can register and log in, find and add devices such as nearby smart sockets, and control device switches.
+WhatieSDK is an SDK provided by ATI TECHNOLOGY (WUHAN) CO.,LTD. for the 3rd party accessing to our IOT cloud platform easily and quickly. Using this SDK, developers can do almost all funcation points on electrical outlets and RGBW bulbs, such as user registration/login, smart configration, add/share/unbind/delete devices, device control, timing countdown, timer, etc.
 
 
-[中文文档](https://www.jianshu.com/p/9afa0004a772) 
+[中文文档/Chinese](https://www.jianshu.com/p/9afa0004a772). 
 
 
 ## Requirements
@@ -20,13 +21,14 @@ WhatieSDK is an SDK provided by ATI TECHNOLOGY (WUHAN) CO.,LTD for third party a
 
 ## Installation
 ### Manual Install
-First add the "WhatieSDK.framework" into your project
-then
+Firstly, add the "WhatieSDK.framework" into your project,
+And then,
 `#import <WhatieSDK/WhatieSDK.h>`
 
 ## Usage
 ### 1. SDK Init
-The SDK should be init before any function will be used.This init work was recommanded to add into app didFinishLaunching... with accessId and accessKey.Such as:
+The SDK should be init before any APIs in SDK used. This init operation is recommended to be done in the function didFinishLaunching... with accessId and accessKey.  Note: To use the SDK, you should contact us to apply for accessId and accessKey.
+Example:
 ```objc
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
@@ -40,13 +42,14 @@ The SDK should be init before any function will be used.This init work was recom
 
 }
 ```
-### 2. About User
+### 2. User Management
 
-After login successfully or the information is modified, the user's latest information is archived locally in the form of a EHOMEUserModel model, after which user’s information can be obtained, updated and removed. 
-The user's Model includes some basic attributes of users, such as ID, name, email, etc.
+The SDK provides user management functions, such as user login, user logout, login password update. The only information you should give to SDK is: (1) the login email and (2) the encrypted password (Note: the SDK does not need the original password characters, it only needs ciphertext, like MD5 text). Here, the login email is the email used for logining into your APP, like Vivitar APP. The encrypted password is the ciphertext of the original password, generated in your APP.
+
+Note: all other information on user management procedure is not needed for SDK.
 
 #### 2.1 Login
-Login with user's email and password.
+Login with user email and encrypted password.
 ```objc
 [EHOMEUserModel loginWithEmail:email password:password startBlock:^{   
     //Start login...
@@ -57,7 +60,7 @@ Login with user's email and password.
 }];
 ```
 #### 2.2 updateLoginPassword
-Update login password with encrypted newPassword and oldPassword with MD5.
+Update login password with encrypted newPassword and encrypted oldPassword.
 ```objc
 [EHOMEUserModel updateLoginPasswordOldPasswordMD5:oldPasswordMD5 newPasswordMD5:newPasswordMD5 startBlock:^{
     NSLog(@"Start Updating Login Password");
@@ -80,7 +83,7 @@ Update login password with encrypted newPassword and oldPassword with MD5.
 
 ### 3. SmartConfig and Device Init
 #### 3.1 SmartConfig
-The device uses the EHOMESmartConfig singleton to perform network distribution and calls the smartConfigWithWifiPasseord method to pass in the password of the wifi connected to the current mobile phone.
+The device uses the EHOMESmartConfig singleton function to perform network distribution, and calls the smartConfigWithWifiPasseord function to get wifi password connected to the mobile phone.
 Just tell us the password of your wifi.
 ```objc
 [[EHOMESmartConfig shareInstance] smartConfigWithWifiPassword:_wifiPassword startBlock:^{
@@ -102,7 +105,7 @@ Just tell us the password of your wifi.
 }];
 ```
 #### 3.2 Device Init
-After SmartConfig success,it should be init with devId and device name.
+After finishing the SmartConfig procedure, the device should be init with devId and device name.
 ```objc
 [EHOMEDeviceModel getStartedWithDevId:devId deviceName:deviceName startBlock:^{       
 
@@ -118,7 +121,7 @@ After SmartConfig success,it should be init with devId and device name.
 
 }];
 ```
-### 4. About Device
+### 4. Device Controlling
 #### 4.1 Get My Devices List
 Get the device list and return an array of <EHOMEDeviceModel * >. The device properties are in EHOMEDeviceModel.h.
 ```objc
@@ -130,8 +133,8 @@ Get the device list and return an array of <EHOMEDeviceModel * >. The device pro
     //Get my devices failed
 }];
 ```
-#### 4.2 Device Control
-Just tell us witch device and status do you want to control.
+#### 4.2 Operate Device
+Just tell us which device and the device status you want it to be.
 ```objc
 [EHOMEDeviceModel switchDeviceStatusWithDeviceModel:deviceModel toStatus:isOn startBlock:^{
     //controlling...
@@ -163,7 +166,7 @@ Just tell us witch device and status do you want to control.
 
 }];
 ```
-#### 4.5 Share device
+#### 4.5 Share device by QR code
 The sharing device is coordinated by the device owner and the shared person. This scheme is to achieve the purpose of sharing devices by scanning the QR Code. First of all, the owner of the device spliced into a string by including information such as the owner id "adminUserId", device id "deviceId", timestamp "timestamp", etc. The string generates a QR Code for the shared user to scan the code to obtain the information and then pass it to the following method. After success, the sharedUser can further control the device.
 ```objc
 [EHOMEDeviceModel sharedDeviceWithAdminUserId:adminUserId sharedUserId:sharedUserId deviceId:deviceid timestamp:timestamp startBlock:^{
@@ -175,14 +178,16 @@ The sharing device is coordinated by the device owner and the shared person. Thi
 }];
 ```
 
-#### 4.6 Countdown
-Control your device when countdown is finished.
-@param deviceModel : the device do you want set timer
-@param isOn :  turn device isOn when countdown is done
-@param duration :  the duration of countdown, such as 10s.If 10 minutes ,it is 600.
+Note: QR code is a bit more complex for users, and it may be kicked out. Share device by email will be provided on June 6, 2018. By then, you can share device only by email. It is very simple.
+
+#### 4.6 Timing Countdown
+Your operation on the device will take effect once timing countdown is finished.
+@param deviceModel: the device do you want to set timing countdown
+@param isOn: the status of the device is to be when countdown is finished
+@param duration: the duration of timing countdown. The unit is second, such as 10seconds; if 10 minutes, the value is 600.
 
 ```objc
-[EHOMEDeviceModel countdownDeviceWithDeviceModel:deviceModel toStatus:isOn duration:10 startBlock:^{
+[EHOMEDeviceModel countdownDeviceWithDeviceModel:deviceModel toStatus:isOn duration:Duration startBlock:^{
 
 } successBlock:^(id responseObject) {
 
@@ -191,18 +196,20 @@ Control your device when countdown is finished.
 }];
 ```
 
-#### 4.7 AddTimerClock
+Note: APIs for cancel timeing countdown will provided June 6.
 
-Control your device when time is ready.
-Set a time to turn on or turn off device on someday.
+#### 4.7 Add timer
 
-@param deviceModel : the device do you want set timer
-@param days :  which day do you want to execute?0 means unable, 1 means enable,and the order of days are:
+Your operation on the device will take effect once the time of the timer arrives.
+Set a timer to operate the device on some specifical time.
+
+@param deviceModel: the device do you want to set a timer
+@param day sequence: which day do you want to execute? 0 means unabled, 1 means enabled,and the order of days are:
 Sunday Saturday Friday Thursday Wednesday Tuesday Monday
 for example:
-timer avaliable on Thursday and Monday,the param of "days" is @"0001001",if Sunday, "days" is @"1000000"
-@param finishTime :  time user set,@"1857" means time is 18:57
-@param isOn :  turn device isOn when time is ready
+timer avaliable on Thursday and Monday,the param of "day sequence" is @"0001001"; if Sunday, "day sequence" is @"1000000"
+@param finishTime: the time user set to, @"1857" means time is 18:57
+@param isOn: the status of the device is to be when timer arrives
 
 ```objc
 [EHOMEDeviceModel addTimerClockWithDeviceModel:deviceModel days:@"0010000" finishTime:@"1857" isOn:YES startBlock:^{
@@ -214,9 +221,11 @@ timer avaliable on Thursday and Monday,the param of "days" is @"0001001",if Sund
 }];
 ```
 
-## Contact Us:
+Note: APIs for cancel timer and timer list will provided June 6.
+
+## Welcome to contact us:
 * iOS Contributors: Yiran Ding, Wei Zhou, Linjun Chen
-* Email : zhouwei20150901@icloud.com
+* Email : zhouwei20150901@icloud.com, whatie@qq.com
 
 ## LICENSE
 WhatieSDK use MIT LICENSE, LICENSE file detail.
