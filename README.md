@@ -9,7 +9,7 @@ All APIs for electrical outlets. SDKs for bulbs will be provided about June 6 or
 Note: it's better to review all details on June 7. 
 ```
 
-WhatieSDK is an SDK provided by ATI TECHNOLOGY (WUHAN) CO.,LTD for the 3rd party accessig to our IOT cloud platform easily and quickly. Using this SDK, developers can do almost all funcation points on electrical outlets and RGBW bulbs, such as user registration/login, smart configration, add/share/unbind/delete devices, device control, timing countdown, timer.
+WhatieSDK is an SDK provided by ATI TECHNOLOGY (WUHAN) CO.,LTD. for the 3rd party accessing to our IOT cloud platform easily and quickly. Using this SDK, developers can do almost all funcation points on electrical outlets and RGBW bulbs, such as user registration/login, smart configration, add/share/unbind/delete devices, device control, timing countdown, timer, etc.
 
 
 [中文文档/Chinese](https://www.jianshu.com/p/9afa0004a772). 
