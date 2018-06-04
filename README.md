@@ -104,7 +104,7 @@ Just tell us the password of your wifi.
 }];
 ```
 #### 3.2 Device Init
-After finsihing the SmartConfig procedure, the device should be init with devId and device name.
+After finishing the SmartConfig procedure, the device should be init with devId and device name.
 ```objc
 [EHOMEDeviceModel getStartedWithDevId:devId deviceName:deviceName startBlock:^{       
 
