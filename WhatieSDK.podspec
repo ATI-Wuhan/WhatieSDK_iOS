@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "WhatieSDK"
-  s.version      = "1.1.0"
+  s.version      = "1.1.1"
   s.summary      = "WhatieSDK is provided by ATI TECHNOLOGY (WUHAN) CO.,LTD."
 
   # This description is used to generate tags and improve search results.
@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
   					The SDK only support operations on WiFi electronics outlets. The main function points of the SDK include: finding electronics outlets nearby, electronics outlets turn-on or turn-off, unbinding associated electronics outlets, sharing your electronics outlets by QRCode, and so on. Note that, room settings, smart scenarios settings and timer settings will be not included in the first version of the SDK. These function points, and other more, can be provided via updating SDK remotely in latest versions.
                    DESC
 
-  s.homepage     = "https://github.com/IIDreams/WhatieSDK_iOS"
+  s.homepage     = "https://github.com/ATI-Wuhan/WhatieSDK_iOS"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
