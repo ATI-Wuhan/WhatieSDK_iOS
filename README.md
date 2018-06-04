@@ -27,7 +27,8 @@ And then,
 
 ## Usage
 ### 1. SDK Init
-The SDK should be init before any APIs in SDK used. This init operation is recommended to be done in the function didFinishLaunching... with accessId and accessKey. Example:
+The SDK should be init before any APIs in SDK used. This init operation is recommended to be done in the function didFinishLaunching... with accessId and accessKey.  Note: To use the SDK, you should contact us to apply for accessId and accessKey.
+Example:
 ```objc
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
