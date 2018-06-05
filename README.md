@@ -44,9 +44,9 @@ Example:
 ```
 ### 2. User Management
 
-The SDK provides user management functions, such as user login, user logout, login password update. The only information you should give to SDK is: (1) the login email and (2) the encrypted password (Note: the SDK does not need the original password characters, it only needs ciphertext, like MD5 text). Here, the login email is the email used for logining into your APP, like Vivitar APP. The encrypted password is the ciphertext of the original password, generated in your APP.
+The SDK provides user management functions, such as user login, user logout, login password update. The only information you should give to SDK is: (1) the login email and (2) the encrypted password (Note: the SDK does not need the original password characters, it only needs ciphertext, like MD5 text). Here, the login email is the email used for logining into your APP, like Vivitar APP. The encrypted password is the ciphertext of the original password, generated in your APP. 
 
-Note: all other information on user management procedure is not needed for SDK.
+Note: (1) all other information on user management procedure is not needed for SDK. (2) The user email and ciphertext will be also stored in our cloud paltform. No any backend development is needed for integrating the SDK into your APP.
 
 #### 2.1 Login
 Login with user email and encrypted password.
