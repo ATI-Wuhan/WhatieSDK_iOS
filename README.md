@@ -1,7 +1,7 @@
 
 ![](https://img.shields.io/badge/platform-iOS-red.svg) ![](https://img.shields.io/badge/language-Objective--C-orange.svg)   ![](https://img.shields.io/badge/license-MIT%20License-brightgreen.svg)  
 
-## WahtieSDK Version 1.1.1 updated at 2018-06-04
+## WahtieSDK Version 1.1.2 updated at 2018-06-08
 
 ```
 What's new:
