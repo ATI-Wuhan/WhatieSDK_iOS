@@ -30,9 +30,9 @@ Sign up a 3rd part developer account at ATI cloud platform to create self-devel
 
 **Note:** We have signed up an account for SAKAR, which has been emailed to SAKAR. SAKAR can just skip this step.
 
-### Obtain a App ID and Secret Key
+### Obtain appId and secretKey
 Go to Development Platform - Application Management - Create a new application to obtain an `appId` and `secretKey` to initialize SDKs (for both Android and iOS).
-[![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/app.png)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/app.png)
+[![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/appId.png)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/appId.png)
 
 **Note:** We have applied appId and secretKey for SAKAR, which has been emailed to SAKAR. SAKAR can just skip this step.
 
@@ -50,7 +50,7 @@ SDK Demo is a complete APP incorporating the main flows and operations such as r
 ### Use CocoaPods for rapid integration (Note: version 8.0 or above is supported)
 Add the following content in file `Podfile`:
 ```objc
-platform :ios, '8.0' target 'Your_Project_Name' do     pod 'WhatieSDK',:git => 'https://github.com/ATI-Wuhan/WhatieSDK_iOS.git' 
+platform :ios, '8.0'<br> target 'Your_Project_Name' do<br>     pod 'WhatieSDK',:git => 'https://github.com/ATI-Wuhan/WhatieSDK_iOS.git'<br>
 end
 ```
 [![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/pod.png)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/pod.png)
@@ -86,7 +86,7 @@ Now, all the preparing work has been done.
 The following example code, unless otherwise stated, all instances are located in the implementation file of the `ViewController` class.
 
 ```objc
-@interface ViewController : UIViewController  @end  @implementation ViewController  //All example code are located here...  @end
+@interface ViewController : UIViewController<br>  @end<br>  @implementation ViewController<br>  //All example code are located here...<br>  @end
 ```
 
 
@@ -109,7 +109,7 @@ All user-related functions can be found in the EHOMEUserModel class (singleton)
 No verification code is required during email registration. Users may register their accounts directly using their emails:
 
 ```objc
--(void)registerByEmail{     [[EHOMEUserModel shareInstance] registerByEmail:@"your_email" password:@"your_password" success:^(id responseObject) {
+-(void)registerByEmail{<br>     [[EHOMEUserModel shareInstance] registerByEmail:@"your_email" password:@"your_password"<br> success:^(id responseObject) {
         NSLog(@"register success");            
     } failure:^(NSError *error) {
         NSLog(@"register failed");
@@ -123,7 +123,7 @@ Upon a successful call, the user’s session will be stored locally by the SDK. 
 #### Email login
 
 ```objc
--(void)loginByEmail{     [[EHOMEUserModel shareInstance] loginByEmail:@"your_email" password:@"your_password" success:^(id responseObject) {
+-(void)loginByEmail{<br>     [[EHOMEUserModel shareInstance] loginByEmail:@"your_email" password:@"your_password" success:^(id responseObject) {
         NSLog(@"login success = %@", responseObject);
     } failure:^(NSError *error) {
         NSLog(@"login failed = %@", error);
@@ -134,11 +134,11 @@ Upon a successful call, the user’s session will be stored locally by the SDK. 
 ### 4.3 Password reset by users
 
 #### Password reset with a email address
-If you forget your password, you can reset your password with the e-mail address consists of two steps:
+If you forget your password, you can reset your password with the e-mail address consisting of two steps:
 * Sending a verification code to the mailbox
 
 ```objc
--(void)sendVerifyCodeByEmail{
+-(void)sendVerifyCodeByEmail{<br>
     [[EHOMEUserModel shareInstance] sendVerifyCodeByEmail:@"your_email" success:^(id responseObject) {
         NSLog(@"Verify Code sent success. res = %@", responseObject);            
     } failure:^(NSError *error) {
@@ -150,7 +150,7 @@ If you forget your password, you can reset your password with the e-mail address
 * The verification code received is then used to reset the password
 
 ```objc
--(void)resetPasswordByEmail {
+-(void)resetPasswordByEmail {<br>
     [[EHOMEUserModel shareInstance] resetPasswordByEmail:@"your_email" newPassword:@"your_password" code:@"verify_code" success:^(id responseObject) {
         NSLog(@"Reset password success. res = %@", responseObject);
     } failure:^(NSError *error) {
@@ -163,7 +163,7 @@ If you forget your password, you can reset your password with the e-mail address
 If you just want to update your password, you can reset your password with the e-mail address and old password
 
 ```objc
--(void)resetPasswordByOldPassword{
+-(void)resetPasswordByOldPassword{<br>
     [[EHOMEUserModel shareInstance] resetPasswordByOldPassword:@"your_old_password" newPassword: @"your_new_password" email:@"your_email" success:^(id responseObject) {
         NSLog(@"Reset Password Success = %@", responseObject);
     } failure:^(NSError *error) {
@@ -178,7 +178,7 @@ Using the `[[EHOMEUserModel shareInstance] syncDeviceWithCloud…]` method wil
 Each of the deviceArray is `<EHOMEDeviceModel * >`. And the device properties are in `EHOMEDeviceModel.h`.
 
 ```objc
--(void)reloadDeviceList{
+-(void)reloadDeviceList{<br>
     [[EHOMEUserModel shareInstance] syncDeviceWithCloud:^(id responseObject) {
         NSLog(@"Get my devices successful : %@", responseObject);
         NSLog(@"deviceArray : %@", [EHOMEUserModel shareInstance].deviceArray);
@@ -192,23 +192,23 @@ Each of the deviceArray is `<EHOMEDeviceModel * >`. And the device properties ar
 Listen for the `EHOMEUserNotificationDeviceArrayChanged` notification, so that a notification can be received in the case of any changes to the device list `[EHOMEUserModel shareInstance].deviceArray` data.
 
 ```objc
-//register notice EHOMEUserNotificationDeviceArrayChanged -(void)viewDidLoad{ 
-    //Register Notice
+//register notice EHOMEUserNotificationDeviceArrayChanged -(void)viewDidLoad{<br>
+    //Register Notice<br>
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name: EHOMEUserNotificationDeviceArrayChanged object:nil];
-}  -(void)reloadData{     //Refresh UI here }  -(void)dealloc{     [[NSNotificationCenter defaultCenter] removeObserver:self]; }
+}  -(void)reloadData{<br>     //Refresh UI here<br> }  -(void)dealloc{<br>     [[NSNotificationCenter defaultCenter] removeObserver:self];<br> }
 ```
 
 ### 4.7 Update a user’s received shared device list
 Using the `[[EHOMEUserModel shareInstance] syncSharedDeviceWithCloud…]` method will update the user’s current shared device list `sharedDeviceArray`.
 
 ```objc
--(void)reloadSharedDeviceList{
-    [[EHOMEUserModel shareInstance] syncSharedDeviceWithCloud:^(id responseObject) {
-        NSLog(@"Get shared devices successful : %@", responseObject);
-        NSLog(@"sharedDeviceArray : %@", [EHOMEUserModel shareInstance].sharedDeviceArray);
-    } failure:^(NSError *error) {
-        NSLog(@"Get shared devices failed : %@", error);
-    }];
+-(void)reloadSharedDeviceList{<br>
+    [[EHOMEUserModel shareInstance] syncSharedDeviceWithCloud:^(id responseObject) {<br>
+        NSLog(@"Get shared devices successful : %@", responseObject);<br>
+        NSLog(@"sharedDeviceArray : %@", [EHOMEUserModel shareInstance].sharedDeviceArray);<br>
+    } failure:^(NSError *error) {<br>
+        NSLog(@"Get shared devices failed : %@", error);<br>
+    }];<br>
 }
 ```
 
@@ -216,10 +216,10 @@ Using the `[[EHOMEUserModel shareInstance] syncSharedDeviceWithCloud…]` metho
 Listen for the `EHOMEUserNotificationSharedDeviceArrayChanged` notification, so that a notification can be received in the case of any change to the device list `[EHOMEUserModel shareInstance].sharedDeviceArray` data.
 
 ```objc
-//register notice EHOMEUserNotificationSharedDeviceArrayChanged -(void)viewDidLoad{ 
-    //Register Notice
+//register notice EHOMEUserNotificationSharedDeviceArrayChanged -(void)viewDidLoad{<br>
+    //Register Notice<br>
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name: EHOMEUserNotificationSharedDeviceArrayChanged object:nil];
-}  -(void)reloadData{     //Refresh UI here }  -(void)dealloc{     [[NSNotificationCenter defaultCenter] removeObserver:self]; }
+}<br>  -(void)reloadData{<br>     //Refresh UI here<br> }<br>  -(void)dealloc{<br>     [[NSNotificationCenter defaultCenter] removeObserver:self];<br> }
 ```
 
 ### 4.9 Update the nickname
