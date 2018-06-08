@@ -11,12 +11,12 @@ Note: it's better to review all details on June 7.
 
 WhatieSDK is an SDK provided by ATI TECHNOLOGY (WUHAN) CO.,LTD. for the 3rd party accessing to our IOT cloud platform easily and quickly. Using this SDK, developers can do almost all funcation points on electrical outlets and RGBW bulbs, such as user registration/login, smart configration, add/share/unbind/delete devices, device control, timing countdown, timer, etc. 
 
-[![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/IMG_2154.PNG)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/IMG_2154.PNG)
-[![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/IMG_2152.PNG)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/IMG_2152.PNG)
-[![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/IMG_2155.PNG)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/IMG_2155.PNG)
-[![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/IMG_2156.PNG)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/IMG_2156.PNG)
-[![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/IMG_2157.PNG)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/IMG_2157.PNG)
-[![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/IMG_2153.PNG)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/IMG_2153.PNG)
+[![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/1small.PNG)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/1.PNG)
+[![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/2small.PNG)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/2.PNG)
+[![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/3small.PNG)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/3.PNG)
+[![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/4small.PNG)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/4.PNG)
+[![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/5small.PNG)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/5.PNG)
+[![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/6small.PNG)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/6.PNG)
 
 
 **Note:** For all function points, no any backend development is needed for integrating the SDK into your APP. You just do all of your work in your APP side. 
