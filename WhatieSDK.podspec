@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "WhatieSDK"
-  s.version      = "1.1.1"
+  s.version      = "1.1.2"
   s.summary      = "WhatieSDK is provided by ATI TECHNOLOGY (WUHAN) CO.,LTD."
 
   # This description is used to generate tags and improve search results.
@@ -53,7 +53,7 @@ Pod::Spec.new do |s|
   #  profile URL.
   #
 
-  s.author             = { "IIDreams" => "https://github.com/IIDreams" }
+  s.author             = { "ATI-Wuhan" => "https://github.com/ATI-Wuhan" }
   # Or just: s.author    = ""
   # s.authors            = { "" => "" }
   # s.social_media_url   = "http://twitter.com/"
@@ -80,7 +80,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/IIDreams/WhatieSDK.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/ATI-Wuhan/WhatieSDK_iOS.git", :tag => "#{s.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
