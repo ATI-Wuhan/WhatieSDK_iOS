@@ -50,7 +50,7 @@ SDK Demo is a complete APP incorporating the main flows and operations such as r
 ### Use CocoaPods for rapid integration (Note: version 8.0 or above is supported)
 Add the following content in file `Podfile`:
 ```objc
-platform :ios, '8.0'<br> target 'Your_Project_Name' do<br>     pod 'WhatieSDK',:git => 'https://github.com/ATI-Wuhan/WhatieSDK_iOS.git'<br>
+platform :ios, '8.0'<\br> target 'Your_Project_Name' do<\br>     pod 'WhatieSDK',:git => 'https://github.com/ATI-Wuhan/WhatieSDK_iOS.git'<\br>
 end
 ```
 [![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/pod.png)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/pod.png)
