@@ -50,7 +50,7 @@ SDK Demo is a complete APP incorporating the main flows and operations such as r
 ### Use CocoaPods for rapid integration (Note: version 8.0 or above is supported)
 Add the following content in file `Podfile`:
 ```objc
-platform :ios, '8.0'<\br> target 'Your_Project_Name' do<\br>     pod 'WhatieSDK',:git => 'https://github.com/ATI-Wuhan/WhatieSDK_iOS.git'<\br>
+platform :ios, '8.0'<br /> target 'Your_Project_Name' do<br />     pod 'WhatieSDK',:git => 'https://github.com/ATI-Wuhan/WhatieSDK_iOS.git'<br />
 end
 ```
 [![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/pod.png)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/pod.png)
@@ -86,7 +86,7 @@ Now, all the preparing work has been done.
 The following example code, unless otherwise stated, all instances are located in the implementation file of the `ViewController` class.
 
 ```objc
-@interface ViewController : UIViewController<br>  @end<br>  @implementation ViewController<br>  //All example code are located here...<br>  @end
+@interface ViewController : UIViewController  @end  @implementation ViewController  //All example code are located here...  @end
 ```
 
 
@@ -109,7 +109,7 @@ All user-related functions can be found in the EHOMEUserModel class (singleton)
 No verification code is required during email registration. Users may register their accounts directly using their emails:
 
 ```objc
--(void)registerByEmail{<br>     [[EHOMEUserModel shareInstance] registerByEmail:@"your_email" password:@"your_password"<br> success:^(id responseObject) {
+-(void)registerByEmail{     [[EHOMEUserModel shareInstance] registerByEmail:@"your_email" password:@"your_password" success:^(id responseObject) {
         NSLog(@"register success");            
     } failure:^(NSError *error) {
         NSLog(@"register failed");
@@ -123,7 +123,7 @@ Upon a successful call, the user’s session will be stored locally by the SDK. 
 #### Email login
 
 ```objc
--(void)loginByEmail{<br>     [[EHOMEUserModel shareInstance] loginByEmail:@"your_email" password:@"your_password" success:^(id responseObject) {
+-(void)loginByEmail{     [[EHOMEUserModel shareInstance] loginByEmail:@"your_email" password:@"your_password" success:^(id responseObject) {
         NSLog(@"login success = %@", responseObject);
     } failure:^(NSError *error) {
         NSLog(@"login failed = %@", error);
@@ -138,7 +138,7 @@ If you forget your password, you can reset your password with the e-mail address
 * Sending a verification code to the mailbox
 
 ```objc
--(void)sendVerifyCodeByEmail{<br>
+-(void)sendVerifyCodeByEmail{
     [[EHOMEUserModel shareInstance] sendVerifyCodeByEmail:@"your_email" success:^(id responseObject) {
         NSLog(@"Verify Code sent success. res = %@", responseObject);            
     } failure:^(NSError *error) {
@@ -150,7 +150,7 @@ If you forget your password, you can reset your password with the e-mail address
 * The verification code received is then used to reset the password
 
 ```objc
--(void)resetPasswordByEmail {<br>
+-(void)resetPasswordByEmail {
     [[EHOMEUserModel shareInstance] resetPasswordByEmail:@"your_email" newPassword:@"your_password" code:@"verify_code" success:^(id responseObject) {
         NSLog(@"Reset password success. res = %@", responseObject);
     } failure:^(NSError *error) {
@@ -163,7 +163,7 @@ If you forget your password, you can reset your password with the e-mail address
 If you just want to update your password, you can reset your password with the e-mail address and old password
 
 ```objc
--(void)resetPasswordByOldPassword{<br>
+-(void)resetPasswordByOldPassword{
     [[EHOMEUserModel shareInstance] resetPasswordByOldPassword:@"your_old_password" newPassword: @"your_new_password" email:@"your_email" success:^(id responseObject) {
         NSLog(@"Reset Password Success = %@", responseObject);
     } failure:^(NSError *error) {
@@ -178,7 +178,7 @@ Using the `[[EHOMEUserModel shareInstance] syncDeviceWithCloud…]` method wil
 Each of the deviceArray is `<EHOMEDeviceModel * >`. And the device properties are in `EHOMEDeviceModel.h`.
 
 ```objc
--(void)reloadDeviceList{<br>
+-(void)reloadDeviceList{
     [[EHOMEUserModel shareInstance] syncDeviceWithCloud:^(id responseObject) {
         NSLog(@"Get my devices successful : %@", responseObject);
         NSLog(@"deviceArray : %@", [EHOMEUserModel shareInstance].deviceArray);
@@ -192,23 +192,23 @@ Each of the deviceArray is `<EHOMEDeviceModel * >`. And the device properties ar
 Listen for the `EHOMEUserNotificationDeviceArrayChanged` notification, so that a notification can be received in the case of any changes to the device list `[EHOMEUserModel shareInstance].deviceArray` data.
 
 ```objc
-//register notice EHOMEUserNotificationDeviceArrayChanged -(void)viewDidLoad{<br>
-    //Register Notice<br>
+//register notice EHOMEUserNotificationDeviceArrayChanged -(void)viewDidLoad{
+    //Register Notice
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name: EHOMEUserNotificationDeviceArrayChanged object:nil];
-}  -(void)reloadData{<br>     //Refresh UI here<br> }  -(void)dealloc{<br>     [[NSNotificationCenter defaultCenter] removeObserver:self];<br> }
+}  -(void)reloadData{     //Refresh UI here }  -(void)dealloc{     [[NSNotificationCenter defaultCenter] removeObserver:self]; }
 ```
 
 ### 4.7 Update a user’s received shared device list
 Using the `[[EHOMEUserModel shareInstance] syncSharedDeviceWithCloud…]` method will update the user’s current shared device list `sharedDeviceArray`.
 
 ```objc
--(void)reloadSharedDeviceList{<br>
-    [[EHOMEUserModel shareInstance] syncSharedDeviceWithCloud:^(id responseObject) {<br>
-        NSLog(@"Get shared devices successful : %@", responseObject);<br>
-        NSLog(@"sharedDeviceArray : %@", [EHOMEUserModel shareInstance].sharedDeviceArray);<br>
-    } failure:^(NSError *error) {<br>
-        NSLog(@"Get shared devices failed : %@", error);<br>
-    }];<br>
+-(void)reloadSharedDeviceList{
+    [[EHOMEUserModel shareInstance] syncSharedDeviceWithCloud:^(id responseObject) {
+        NSLog(@"Get shared devices successful : %@", responseObject);
+        NSLog(@"sharedDeviceArray : %@", [EHOMEUserModel shareInstance].sharedDeviceArray);
+    } failure:^(NSError *error) {
+        NSLog(@"Get shared devices failed : %@", error);
+    }];
 }
 ```
 
