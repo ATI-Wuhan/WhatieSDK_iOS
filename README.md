@@ -32,7 +32,7 @@ Sign up a 3rd part developer account at ATI cloud platform to create self-devel
 
 ### Obtain a App ID and Secret Key
 Go to Development Platform - Application Management - Create a new application to obtain an `appId` and `secretKey` to initialize SDKs (for both Android and iOS).
-[![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/appId.png)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/appId.png)
+[![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/app.png)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/app.png)
 
 **Note:** We have applied appId and secretKey for SAKAR, which has been emailed to SAKAR. SAKAR can just skip this step.
 
@@ -47,7 +47,7 @@ SDK Demo is a complete APP incorporating the main flows and operations such as r
 * iOS 8 or later
 * Xcode 9 or later
 
-### Using CocoaPods for rapid integration (Note: version 8.0 or above is supported)
+### Use CocoaPods for rapid integration (Note: version 8.0 or above is supported)
 Add the following content in file `Podfile`:
 ```objc
 platform :ios, '8.0' target 'Your_Project_Name' do     pod 'WhatieSDK',:git => 'https://github.com/ATI-Wuhan/WhatieSDK_iOS.git' 
@@ -65,7 +65,7 @@ You can also add WhatieSDK as a framework to your project or workspace.
 2. Open your project in Xcode, then drag and drop `WhatieSDK.framework` into your project.
 3. Include WhatieSDK wherever you need it with `#import <WhatieSDK/WhatieSDK.h>`
 
-### Initializing SDK
+### Initialize SDK
 You can add the following code to the project file PrefixHeader.pch:
 `#import <WhatieSDK/WhatieSDK.h>`
 Open file `AppDelegate.m`, and use the `appId` and `secretKey`, obtained from the development platform, in the `[AppDelegate application:didFinishLaunchingWithOptions:]` method to initialize SDK, as below:
@@ -172,7 +172,7 @@ If you just want to update your password, you can reset your password with the e
 }
 ```
 
-### 4.5 Updating a user’s device list
+### 4.5 Update a user’s device list
 Using the `[[EHOMEUserModel shareInstance] syncDeviceWithCloud…]` method will update the user’s current device list `deviceArray`.
 
 Each of the deviceArray is `<EHOMEDeviceModel * >`. And the device properties are in `EHOMEDeviceModel.h`.
@@ -188,7 +188,7 @@ Each of the deviceArray is `<EHOMEDeviceModel * >`. And the device properties ar
 }
 ```
 
-### 4.6 Handling device list changes
+### 4.6 Handle device list changes
 Listen for the `EHOMEUserNotificationDeviceArrayChanged` notification, so that a notification can be received in the case of any changes to the device list `[EHOMEUserModel shareInstance].deviceArray` data.
 
 ```objc
@@ -198,7 +198,7 @@ Listen for the `EHOMEUserNotificationDeviceArrayChanged` notification, so that 
 }  -(void)reloadData{     //Refresh UI here }  -(void)dealloc{     [[NSNotificationCenter defaultCenter] removeObserver:self]; }
 ```
 
-### 4.7 Updating a user’s received shared device list
+### 4.7 Update a user’s received shared device list
 Using the `[[EHOMEUserModel shareInstance] syncSharedDeviceWithCloud…]` method will update the user’s current shared device list `sharedDeviceArray`.
 
 ```objc
@@ -212,7 +212,7 @@ Using the `[[EHOMEUserModel shareInstance] syncSharedDeviceWithCloud…]` metho
 }
 ```
 
-### 4.8 Handling a user’s received shared device list changes
+### 4.8 Handle a user’s received shared device list changes
 Listen for the `EHOMEUserNotificationSharedDeviceArrayChanged` notification, so that a notification can be received in the case of any change to the device list `[EHOMEUserModel shareInstance].sharedDeviceArray` data.
 
 ```objc
