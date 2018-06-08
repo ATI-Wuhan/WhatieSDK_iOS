@@ -6,11 +6,10 @@
 ```
 What's new:
 All APIs for electrical outlets. SDKs for bulbs will be provided about June 12, 2018. 
-Note: it's better to review all details on June 12. 
 ```
 ## 1.Features Overview
 
-WhatieSDK is an SDK provided by ATI TECHNOLOGY (WUHAN) CO.,LTD. for the 3rd party accessing to our IOT cloud platform easily and quickly. Using this SDK, developers can do almost all funcation points on electrical outlets and RGBW bulbs, such as user registration/login, smart configration, add/share/unbind/delete devices, device control, timing countdown, timer, etc. 
+WhatieSDK is an SDK provided by ATI TECHNOLOGY (WUHAN) CO.,LTD. for the 3rd party accessing to our ATI IoT cloud platform easily and quickly. Using this SDK, developers can do almost all funcation points on electrical outlets and RGBW bulbs (to be uploaded on June 12), such as user registration/login/logout, smart configration, add/share/remove devices, device control, timing countdown, timer, etc. 
 
 [![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/1small.PNG)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/1.PNG)
 [![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/2small.PNG)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/2.PNG)
@@ -20,24 +19,25 @@ WhatieSDK is an SDK provided by ATI TECHNOLOGY (WUHAN) CO.,LTD. for the 3rd part
 [![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/6small.PNG)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/6.PNG)
 
 
-**Note:** For all function points, no any backend development is needed for integrating the SDK into your APP. You just do all of your work in your APP side. 
-
-
-[中文文档/Chinese](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/README_CN.md). 
+**Note:** For all function points, no any backend development on cloud platform is needed for integrating the SDK into your APP. You just do all of your work in your APP side. 
 
 
 
 ## 2.Preparation
 
 ### Sign up a developer account
-Sign up a developer account at ATI-Wuhan eHome Platform to create a product, create a functional point, and so on. For detailed information, please refer to the access procedure.
+Sign up a 3rd part developer account at ATI cloud platform to create self-developled products, create functional points, and so on.
 
-### Obtain an iOS App ID and App Secret
-Go to Development Platform - Application Management - Create a new application to obtain an `appId` and `secretKey` to initialize SDK.
+**Note:** We have signed up an account for SAKAR, which has been emailed to SAKAR. SAKAR can just skip this step.
+
+### Obtain a App ID and Secret Key
+Go to Development Platform - Application Management - Create a new application to obtain an `appId` and `secretKey` to initialize SDKs (for both Android and iOS).
 [![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/appId.png)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/appId.png)
 
+**Note:** We have applied appId and secretKey for SAKAR, which has been emailed to SAKAR. SAKAR can just skip this step.
+
 ### SDK Demo
-SDK Demo is a complete APP incorporating the main flows such as registration, login, sharing, feedback, network configuration and control. The Demo code can be used as a reference for the development. [Download link](https://github.com/ATI-Wuhan/WhatieSDKDemo_iOS)
+SDK Demo is a complete APP incorporating the main flows and operations such as registration, login, sharing, feedback, network configuration and device control, etc. The Demo code can be used as a good reference for the 3rd part development. [Download link](https://github.com/ATI-Wuhan/WhatieSDKDemo_iOS)
 
 
 
@@ -47,7 +47,7 @@ SDK Demo is a complete APP incorporating the main flows such as registration, lo
 * iOS 8 or later
 * Xcode 9 or later
 
-### Using CocoaPods rapid integration (version 8.0 or above is supported)
+### Using CocoaPods for rapid integration (Note: version 8.0 or above is supported)
 Add the following content in file `Podfile`:
 ```objc
 platform :ios, '8.0' target 'Your_Project_Name' do     pod 'WhatieSDK',:git => 'https://github.com/ATI-Wuhan/WhatieSDK_iOS.git' 
@@ -55,20 +55,20 @@ end
 ```
 [![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/pod.png)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/pod.png)
 
-Execute command `pod install` in the project’s root directory to begin integration.
-For the instructions of CocoaPods, please refer to [CocoaPods Guides](https://guides.cocoapods.org)
+Execute the command `pod install` in the project’s root directory to begin the integration procedure.
+For instructions of CocoaPods, please refer to [CocoaPods Guides](https://guides.cocoapods.org)
 
-### Manual Install with Framework
+### Alternative method: Manual Install with Framework
 You can also add WhatieSDK as a framework to your project or workspace.
 
 1. Download the WhatieSDK.framework
-2. Open your project in Xcode, then drag and drop `WhatieSDK.framework` onto your project.
+2. Open your project in Xcode, then drag and drop `WhatieSDK.framework` into your project.
 3. Include WhatieSDK wherever you need it with `#import <WhatieSDK/WhatieSDK.h>`
 
 ### Initializing SDK
-You can add the following to the project file PrefixHeader.pch:
+You can add the following code to the project file PrefixHeader.pch:
 `#import <WhatieSDK/WhatieSDK.h>`
-Open file `AppDelegate.m`, and use the `appId` and `secretKey` obtained from the development platform in the `[AppDelegate application:didFinishLaunchingWithOptions:]` method to initialize SDK:
+Open file `AppDelegate.m`, and use the `appId` and `secretKey`, obtained from the development platform, in the `[AppDelegate application:didFinishLaunchingWithOptions:]` method to initialize SDK, as below:
 
 ```objc
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -80,7 +80,7 @@ Open file `AppDelegate.m`, and use the `appId` and `secretKey` obtained from th
 }
 ```
 
-Now all the preparatory work has been completed. You can set out to develop your application.
+Now, all the preparing work has been done.
 
 ### Example code conventions
 The following example code, unless otherwise stated, all instances are located in the implementation file of the `ViewController` class.
@@ -93,18 +93,20 @@ The following example code, unless otherwise stated, all instances are located i
 
 ## 4.User Management
 
-The SDK provides user management functions, such as user registration, user login, user logout, login password update.
+The SDK provides user management functions, such as user registration, user login, user logout, login password update, and change nickname.
+
 **Note:**
 1. all other information on user management procedure is not needed for SDK. 
-2. The user email and ciphertext will be also stored in our cloud paltform. No any backend development is needed for integrating the SDK into your APP.
+2. The user email and password ciphertext will be also stored in our cloud paltform. 
+3. No any backend development (on cloud side) is needed for integrating the SDK into your APP.
 
-All user-related functions correspond to the EHOMEUserModel class (singleton).
+All user-related functions can be found in the EHOMEUserModel class (singleton).
 
 ### 4.1 User registration
-**Note:** Following a successful call of the registration method, all functions in the SDK can be used normally (a successful registration is regarded as a successful login). It is not necessary to call the login method anymore.
+**Note:** The following example code is a successful call of the registration method. After registration, user logins automatically, and it is unnecessary to call the login method anymore.
 
 #### Email registration
-No verification code is required during email registration. Users may register their accounts directly:
+No verification code is required during email registration. Users may register their accounts directly using their emails:
 
 ```objc
 -(void)registerByEmail{     [[EHOMEUserModel shareInstance] registerByEmail:@"your_email" password:@"your_password" success:^(id responseObject) {
@@ -116,7 +118,7 @@ No verification code is required during email registration. Users may register t
 ```
 
 ### 4.2 User login
-Upon a successful call, the user’s session will be stored locally by the SDK. When the app is launched next time, the used is logged in by default and no more login process is required.
+Upon a successful call, the user’s session will be stored locally by the SDK. When the app is launched next time, the used is logged in by default, and no more login action is required.
 
 #### Email login
 
@@ -128,10 +130,11 @@ Upon a successful call, the user’s session will be stored locally by the SDK. 
     }];
 }
 ```
+
 ### 4.3 Password reset by users
 
-#### Password reset with a mail address
-Resetting a password with the E-mail address consists of two steps:
+#### Password reset with a email address
+If you forget your password, you can reset your password with the e-mail address consists of two steps:
 * Sending a verification code to the mailbox
 
 ```objc
@@ -157,7 +160,7 @@ Resetting a password with the E-mail address consists of two steps:
 ```
 
 ### 4.4 Password reset by old password
-Resetting a password with the E-mail address and old password
+If you just want to update your password, you can reset your password with the e-mail address and old password
 
 ```objc
 -(void)resetPasswordByOldPassword{
@@ -186,7 +189,7 @@ Each of the deviceArray is `<EHOMEDeviceModel * >`. And the device properties ar
 ```
 
 ### 4.6 Handling device list changes
-Listen for the `EHOMEUserNotificationDeviceArrayChanged` notification, so that a notification can be received in the case of any change to the device list `[EHOMEUserModel shareInstance].deviceArray` data.
+Listen for the `EHOMEUserNotificationDeviceArrayChanged` notification, so that a notification can be received in the case of any changes to the device list `[EHOMEUserModel shareInstance].deviceArray` data.
 
 ```objc
 //register notice EHOMEUserNotificationDeviceArrayChanged -(void)viewDidLoad{ 
@@ -209,7 +212,7 @@ Using the `[[EHOMEUserModel shareInstance] syncSharedDeviceWithCloud…]` metho
 }
 ```
 
-### 4.8 Handling shared device list changes
+### 4.8 Handling a user’s received shared device list changes
 Listen for the `EHOMEUserNotificationSharedDeviceArrayChanged` notification, so that a notification can be received in the case of any change to the device list `[EHOMEUserModel shareInstance].sharedDeviceArray` data.
 
 ```objc
@@ -220,7 +223,7 @@ Listen for the `EHOMEUserNotificationSharedDeviceArrayChanged` notification, so
 ```
 
 ### 4.9 Update the nickname
-
+The user can change user name by update the nickname method, as below:
 ```objc
 -(void)updateNickname:(NSString *)nickname{     [[EHOMEUserModel shareInstance] updateNickname:@"your_nickname" success:^(id responseObject) {
         NSLog(@"update nickname success. res = %@", responseObject);                
@@ -231,7 +234,7 @@ Listen for the `EHOMEUserNotificationSharedDeviceArrayChanged` notification, so
 ```
 
 ### 4.10 Logout
-
+The user can logout the APP by the method as below: 
 ```objc
 -(void)loginOut{
     [[EHOMEUserModel shareInstance] loginOut:^(id responseObject) {
@@ -246,8 +249,7 @@ Listen for the `EHOMEUserNotificationSharedDeviceArrayChanged` notification, so
 
 ## 5. SmartConfig and Device Init
 ### 5.1 SmartConfig
-The device uses the EHOMESmartConfig singleton function to perform network distribution, and calls the smartConfigWithWifiPasseord function to get wifi password connected to the mobile phone.
-Just tell us the password of your wifi.
+The device uses the EHOMESmartConfig singleton function to perform network configuration as below:
 ```objc
 -(void)smartConfig{
     [[EHOMESmartConfig shareInstance] startSmartConfigWithSsid:@"your_ssid" bssid:@"your_bssid" password:@"your_wifi_password" success:^(id responseObject) {
@@ -268,7 +270,7 @@ Just tell us the password of your wifi.
 ```
 
 ### 5.2 Device Init
-After finishing the SmartConfig procedure, the device should be init with devId and device name.
+After finishing the SmartConfig procedure, the device should be initialized with devId and device name.
 ```objc
 -(void)getStarted{
     [[EHOMESmartConfig shareInstance] getStartedWithDevId:@"your_device_devId" deviceName:@"your_deviceName" success:^(id responseObject) {
@@ -282,7 +284,7 @@ After finishing the SmartConfig procedure, the device should be init with devId 
 ## 6. Device Control
 
 ### 6.1 OnOff device
-
+You can turn on/off the device by the following method:
 ```objc
 -(void)updateDeviceStatus:(BOOL)status{
     [seld.device updateDeviceStatus:@"your_status" success:^(id responseObject) {
@@ -294,7 +296,7 @@ After finishing the SmartConfig procedure, the device should be init with devId 
 ```
 
 ### 6.2 Rename device
-
+The device name can be renamed by:
 ```objc
 -(void)updateDeviceName:(NSString *)deviceName{
     [self.device updateDeviceName:@"your_deviceName" success:^(id responseObject) {
@@ -306,7 +308,7 @@ After finishing the SmartConfig procedure, the device should be init with devId 
 ```
 
 ### 6.3 Remove device
-
+The device can be removed if you don't need this device, no matter its your own or its a device shared to you. If the removed device is your own, the device is reset to network-pending state.
 ```objc
 -(void)removeDevice{
     [self.device removeDevice:^(id responseObject) {
@@ -318,7 +320,7 @@ After finishing the SmartConfig procedure, the device should be init with devId 
 ```
 
 ### 6.4 Share device by email
-
+The device can be shared to your friend by:
 ```objc
 -(void)shareDeviceByEmail{
     [self.device shareDeviceByEmail:@"your_friend_email" success:^(id responseObject) {
@@ -330,16 +332,14 @@ After finishing the SmartConfig procedure, the device should be init with devId 
 ```
 
 ### 6.5 Remove shares
-After deleting a share, you will not be able to use his or her devices, or he/she will not be able to use your devices.
+Please refer to 6.3 Remove device.
 
 
 
 ## 7. Timer
+**Important Note:** loops: @“0000000”, each bit, 0: off, 1: on, representing from left to right: Sunday Saturday Friday Thursday Wednesday Tuesday Monday
 
-All functions related to regular tasks correspond to the TuyaSmartTimer class.
-**Note:** loops: @“0000000”, each bit, 0: off, 1: on, representing from left to right: Sunday Saturday Friday Thursday Wednesday Tuesday Monday
-
-### 7.1 Add timer
+### 7.1 Add a timer
 Set a timer to operate the device on some specifical time.Your operation on the device will take effect once the time of the timer arrives.
 @param loops
 @param finishTime : the time user set to, like: @"18:57"
@@ -355,8 +355,8 @@ Set a timer to operate the device on some specifical time.Your operation on the 
 }
 ```
 
-### 7.2 Update timer
-
+### 7.2 Update a timer
+You can update/modify the assigned timer by:
 ```objc
 -(void)updateTimer{
 [self.device updateTimerWithLoops:@"your_loops" time:@"your_time" status:@"your_status" success:^(id responseObject) {
@@ -368,7 +368,7 @@ Set a timer to operate the device on some specifical time.Your operation on the 
 ```
 
 ### 7.3 Update timer status
-Update the status of a specified timer under a specified device, 0: off, 1: on
+Update the status of a specified timer under a specified device, i.e., 0: off, 1: on, using the following method:
 
 ```objc
 -(void)updateTimerStatus:(BOOL)status{
@@ -381,7 +381,7 @@ Update the status of a specified timer under a specified device, 0: off, 1: on
 ```
 
 ### 7.4 Remove a timer
-Delete a specified timer under a specified device
+Delete a specified timer under a specified device by:
 
 ```objc
 - (void)removeTimer {     [self.timer removeTimer:^(id responseObject) {
@@ -393,7 +393,7 @@ Delete a specified timer under a specified device
 ```
 
 ### 7.5 Obtain all timers
-Obtain all timers under a specified device
+Obtain all timers under a specified device by:
 
 ```objc
 - (void)getAllTimers{
@@ -406,7 +406,7 @@ Obtain all timers under a specified device
 ```
 
 ## 8. Timing Countdown
-Timing Countdown for a specific device
+You can create a timing countdown for a specific device.
  
 ### 8.1 Add a timing countdown
 Your operation on the device will take effect once timing countdown is finished.
@@ -426,7 +426,7 @@ Your operation on the device will take effect once timing countdown is finished.
 ```
 
 ### 8.2 Obtain a timing countdown
-
+Get a timing countdown under a specific device, and then, you can show its value in the APP.
 ```objc
 -(void)getTimingCountdown{
     [self.device getTimingCountdown:^(id responseObject) {
@@ -439,7 +439,7 @@ Your operation on the device will take effect once timing countdown is finished.
 ```
 
 ### 8.3 Update a timing countdown
-
+Once you update a timing countdown, it will become a new one. Please refer to 8.1 Add a timing countdown.
 
 
 
