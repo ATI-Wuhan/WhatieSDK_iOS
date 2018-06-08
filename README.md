@@ -11,7 +11,15 @@ Note: it's better to review all details on June 7.
 
 WhatieSDK is an SDK provided by ATI TECHNOLOGY (WUHAN) CO.,LTD. for the 3rd party accessing to our IOT cloud platform easily and quickly. Using this SDK, developers can do almost all funcation points on electrical outlets and RGBW bulbs, such as user registration/login, smart configration, add/share/unbind/delete devices, device control, timing countdown, timer, etc. 
 
-Note: For all function points, no any backend development is needed for integrating the SDK into your APP. You just do all of your work in your APP side. 
+[![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/IMG_2154.PNG)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/IMG_2154.PNG)
+[![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/IMG_2152.PNG)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/IMG_2152.PNG)
+[![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/IMG_2155.PNG)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/IMG_2155.PNG)
+[![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/IMG_2156.PNG)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/IMG_2156.PNG)
+[![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/IMG_2157.PNG)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/IMG_2157.PNG)
+[![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/IMG_2153.PNG)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/IMG_2153.PNG)
+
+
+**Note:** For all function points, no any backend development is needed for integrating the SDK into your APP. You just do all of your work in your APP side. 
 
 
 [中文文档/Chinese](https://www.jianshu.com/p/9afa0004a772). 
@@ -29,7 +37,8 @@ And then,
 
 ## Usage
 ### 1. SDK Init
-The SDK should be init before any APIs in SDK used. This init operation is recommended to be done in the function didFinishLaunching... with accessId and accessKey.  Note: To use the SDK, you should contact us to apply for accessId and accessKey.
+The SDK should be init before any APIs in SDK used. This init operation is recommended to be done in the function `didFinishLaunching...` with accessId and accessKey.  
+**Note:** To use the SDK, you should contact us to apply for accessId and accessKey.
 Example:
 ```objc
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -46,9 +55,9 @@ Example:
 ```
 ### 2. User Management
 
-The SDK provides user management functions, such as user login, user logout, login password update. The only information you should give to SDK is: (1) the login email and (2) the encrypted password (Note: the SDK does not need the original password characters, it only needs ciphertext, like MD5 text). Here, the login email is the email used for logining into your APP, like Vivitar APP. The encrypted password is the ciphertext of the original password, generated in your APP. 
+The SDK provides user management functions, such as user login, user logout, login password update. The only information you should give to SDK is: (1) the login email and (2) the encrypted password (**Note:** the SDK does not need the original password characters, it only needs ciphertext, like MD5 text). Here, the login email is the email used for logining into your APP, like Vivitar APP. The encrypted password is the ciphertext of the original password, generated in your APP. 
 
-Note: (1) all other information on user management procedure is not needed for SDK. (2) The user email and ciphertext will be also stored in our cloud paltform. No any backend development is needed for integrating the SDK into your APP.
+**Note:** (1) all other information on user management procedure is not needed for SDK. (2) The user email and ciphertext will be also stored in our cloud paltform. No any backend development is needed for integrating the SDK into your APP.
 
 #### 2.1 Login
 Login with user email and encrypted password.
@@ -125,7 +134,7 @@ After finishing the SmartConfig procedure, the device should be init with devId 
 ```
 ### 4. Device Controlling
 #### 4.1 Get My Devices List
-Get the device list and return an array of <EHOMEDeviceModel * >. The device properties are in EHOMEDeviceModel.h.
+Get the device list and return an array of `<EHOMEDeviceModel * >`. The device properties are in `EHOMEDeviceModel.h`.
 ```objc
 [EHOMEDeviceModel getMyDeviceListWithStartBlock:^{
     //Start getting my devices...
@@ -180,7 +189,7 @@ The sharing device is coordinated by the device owner and the shared person. Thi
 }];
 ```
 
-Note: QR code is a bit more complex for users, and it may be kicked out. Share device by email will be provided on June 6, 2018. By then, you can share device only by email. It is very simple.
+**Note:** QR code is a bit more complex for users, and it may be kicked out. Share device by email will be provided on June 6, 2018. By then, you can share device only by email. It is very simple.
 
 #### 4.6 Timing Countdown
 Your operation on the device will take effect once timing countdown is finished.
@@ -198,7 +207,7 @@ Your operation on the device will take effect once timing countdown is finished.
 }];
 ```
 
-Note: APIs for cancel timeing countdown will provided June 6.
+**Note:** APIs for cancel timeing countdown will provided June 6.
 
 #### 4.7 Add timer
 
@@ -223,10 +232,10 @@ timer avaliable on Thursday and Monday,the param of "day sequence" is @"0001001"
 }];
 ```
 
-Note: APIs for cancel timer and timer list will provided June 6.
+**Note:** APIs for cancel timer and timer list will provided June 6.
 
 ## Welcome to contact us:
-* iOS Contributors: Yiran Ding, Wei Zhou, Linjun Chen
+* iOS Contributors: Yiran Ding, IIDreams, Linjun Chen
 * Email : zhouwei20150901@icloud.com, whatie@qq.com
 
 ## LICENSE
