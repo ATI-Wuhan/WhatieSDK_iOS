@@ -34,7 +34,7 @@ Sign up a developer account at ATI-Wuhan eHome Platform to create a product, cr
 
 ### Obtain an iOS App ID and App Secret
 Go to Development Platform - Application Management - Create a new application to obtain an `appId` and `secretKey` to initialize SDK.
-[![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/6.PNG)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/6.PNG)
+[![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/appId.png)
 
 ### SDK Demo
 SDK Demo is a complete APP incorporating the main flows such as registration, login, sharing, feedback, network configuration and control. The Demo code can be used as a reference for the development. [Download link](https://github.com/ATI-Wuhan/WhatieSDKDemo_iOS)
@@ -53,7 +53,7 @@ Add the following content in file `Podfile`:
 platform :ios, '8.0' target 'Your_Project_Name' do     pod 'WhatieSDK',:git => 'https://github.com/ATI-Wuhan/WhatieSDK_iOS.git' 
 end
 ```
-[![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/6.PNG)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/6.PNG)
+[![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/pod.png)]
 
 Execute command `pod install` in the project’s root directory to begin integration.
 For the instructions of CocoaPods, please refer to [CocoaPods Guides](https://guides.cocoapods.org)
