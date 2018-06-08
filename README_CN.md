@@ -1,232 +1,451 @@
 
-![](https://img.shields.io/badge/platform-iOS-red.svg) ![](https://img.shields.io/badge/language-Objective--C-orange.svg)   ![](https://img.shields.io/badge/license-MIT%20License-brightgreen.svg)  
+![](https://img.shields.io/badge/platform-iOS-red.svg) ![](https://img.shields.io/badge/language-Objective--C-orange.svg) [![CocoaPods compatible](https://img.shields.io/cocoapods/v/WhatieSDK.svg?style=flat)](https://cocoapods.org/pods/WhatieSDK) ![](https://img.shields.io/badge/license-MIT%20License-brightgreen.svg)  
 
-## WahtieSDK Version 1.1.1 updated at 2018-06-04
+## WahtieSDK Version 1.1.3 updated at 2018-06-08
 
 ```
 What's new:
-All APIs for electrical outlets. SDKs for bulbs will be provided about June 6 or 7, 2018. 
-Note: it's better to review all details on June 7. 
+All APIs for electrical outlets. SDKs for bulbs will be provided about June 12, 2018. 
+Note: it's better to review all details on June 12. 
 ```
+## 1.Features Overview
 
 WhatieSDK is an SDK provided by ATI TECHNOLOGY (WUHAN) CO.,LTD. for the 3rd party accessing to our IOT cloud platform easily and quickly. Using this SDK, developers can do almost all funcation points on electrical outlets and RGBW bulbs, such as user registration/login, smart configration, add/share/unbind/delete devices, device control, timing countdown, timer, etc. 
 
-Note: For all function points, no any backend development is needed for integrating the SDK into your APP. You just do all of your work in your APP side. 
+[![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/1small.PNG)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/1.PNG)
+[![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/2small.PNG)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/2.PNG)
+[![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/3small.PNG)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/3.PNG)
+[![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/4small.PNG)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/4.PNG)
+[![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/5small.PNG)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/5.PNG)
+[![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/6small.PNG)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/6.PNG)
 
 
-[中文文档/Chinese](https://www.jianshu.com/p/9afa0004a772). 
+**Note:** For all function points, no any backend development is needed for integrating the SDK into your APP. You just do all of your work in your APP side. 
 
 
-## Requirements
+[中文文档/Chinese](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/README_CN.md). 
+
+
+
+## 2.Preparation
+
+### Sign up a developer account
+Sign up a developer account at ATI-Wuhan eHome Platform to create a product, create a functional point, and so on. For detailed information, please refer to the access procedure.
+
+### Obtain an iOS App ID and App Secret
+Go to Development Platform - Application Management - Create a new application to obtain an `appId` and `secretKey` to initialize SDK.
+[![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/appId.png)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/appId.png)
+
+### SDK Demo
+SDK Demo is a complete APP incorporating the main flows such as registration, login, sharing, feedback, network configuration and control. The Demo code can be used as a reference for the development. [Download link](https://github.com/ATI-Wuhan/WhatieSDKDemo_iOS)
+
+
+
+## 3.SDK Integration
+
+### Requirements
 * iOS 8 or later
 * Xcode 9 or later
 
-## Installation
-### Manual Install
-Firstly, add the "WhatieSDK.framework" into your project,
-And then,
-`#import <WhatieSDK/WhatieSDK.h>`
+### Using CocoaPods rapid integration (version 8.0 or above is supported)
+Add the following content in file `Podfile`:
+```objc
+platform :ios, '8.0' target 'Your_Project_Name' do     pod 'WhatieSDK',:git => 'https://github.com/ATI-Wuhan/WhatieSDK_iOS.git' 
+end
+```
+[![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/pod.png)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/pod.png)
 
-## Usage
-### 1. SDK Init
-The SDK should be init before any APIs in SDK used. This init operation is recommended to be done in the function didFinishLaunching... with accessId and accessKey.  Note: To use the SDK, you should contact us to apply for accessId and accessKey.
-Example:
+Execute command `pod install` in the project’s root directory to begin integration.
+For the instructions of CocoaPods, please refer to [CocoaPods Guides](https://guides.cocoapods.org)
+
+### Manual Install with Framework
+You can also add WhatieSDK as a framework to your project or workspace.
+
+1. Download the WhatieSDK.framework
+2. Open your project in Xcode, then drag and drop `WhatieSDK.framework` onto your project.
+3. Include WhatieSDK wherever you need it with `#import <WhatieSDK/WhatieSDK.h>`
+
+### Initializing SDK
+You can add the following to the project file PrefixHeader.pch:
+`#import <WhatieSDK/WhatieSDK.h>`
+Open file `AppDelegate.m`, and use the `appId` and `secretKey` obtained from the development platform in the `[AppDelegate application:didFinishLaunchingWithOptions:]` method to initialize SDK:
+
 ```objc
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    //your code...
+//Init WhatieSDK
+[[EHOMESDK shareInstance] startWithAppId:appId secretKey:secretKey];
 
-    //Init WhatieSDK   
-
-    [[EHOMESDK shareInstance] startWithAccessId:AccessId andAccessKey:AccessKey];
-
-    //your code...
-
+//your code...
 }
 ```
-### 2. User Management
 
-The SDK provides user management functions, such as user login, user logout, login password update. The only information you should give to SDK is: (1) the login email and (2) the encrypted password (Note: the SDK does not need the original password characters, it only needs ciphertext, like MD5 text). Here, the login email is the email used for logining into your APP, like Vivitar APP. The encrypted password is the ciphertext of the original password, generated in your APP. 
+Now all the preparatory work has been completed. You can set out to develop your application.
 
-Note: (1) all other information on user management procedure is not needed for SDK. (2) The user email and ciphertext will be also stored in our cloud paltform. No any backend development is needed for integrating the SDK into your APP.
+### Example code conventions
+The following example code, unless otherwise stated, all instances are located in the implementation file of the `ViewController` class.
 
-#### 2.1 Login
-Login with user email and encrypted password.
 ```objc
-[EHOMEUserModel loginWithEmail:email password:password startBlock:^{   
-    //Start login...
-} successBlock:^(id responseObject) {
-    //Login success
-} failBlock:^(NSError *error) {
-    //Login failed
-}];
-```
-#### 2.2 updateLoginPassword
-Update login password with encrypted newPassword and encrypted oldPassword.
-```objc
-[EHOMEUserModel updateLoginPasswordOldPasswordMD5:oldPasswordMD5 newPasswordMD5:newPasswordMD5 startBlock:^{
-    NSLog(@"Start Updating Login Password");
-} successBlock:^(id responseObject) {
-    NSLog(@"Update Login Password Success = %@", responseObject);
-} failBlock:^(NSError *error) {
-    NSLog(@"Update Login Password Failed = %@", error);
-}];
-```
-#### 2.3 Logout
-```objc
-[EHOMEUserModel logoutWithStartBlock:^{
-    NSLog(@"logout...");
-} successBlock:^(id responseObject) {
-    NSLog(@"logout success = %@", responseObject);
-} failBlock:^(NSError *error) {
-    NSLog(@"logout failed = %@", error);
-}];
+@interface ViewController : UIViewController  @end  @implementation ViewController  //All example code are located here...  @end
 ```
 
-### 3. SmartConfig and Device Init
-#### 3.1 SmartConfig
+
+
+## 4.User Management
+
+The SDK provides user management functions, such as user registration, user login, user logout, login password update.
+**Note:**
+1. all other information on user management procedure is not needed for SDK. 
+2. The user email and ciphertext will be also stored in our cloud paltform. No any backend development is needed for integrating the SDK into your APP.
+
+All user-related functions correspond to the EHOMEUserModel class (singleton).
+
+### 4.1 User registration
+**Note:** Following a successful call of the registration method, all functions in the SDK can be used normally (a successful registration is regarded as a successful login). It is not necessary to call the login method anymore.
+
+#### Email registration
+No verification code is required during email registration. Users may register their accounts directly:
+
+```objc
+-(void)registerByEmail{     [[EHOMEUserModel shareInstance] registerByEmail:@"your_email" password:@"your_password" success:^(id responseObject) {
+NSLog(@"register success");            
+} failure:^(NSError *error) {
+NSLog(@"register failed");
+}];
+}
+```
+
+### 4.2 User login
+Upon a successful call, the user’s session will be stored locally by the SDK. When the app is launched next time, the used is logged in by default and no more login process is required.
+
+#### Email login
+
+```objc
+-(void)loginByEmail{     [[EHOMEUserModel shareInstance] loginByEmail:@"your_email" password:@"your_password" success:^(id responseObject) {
+NSLog(@"login success = %@", responseObject);
+} failure:^(NSError *error) {
+NSLog(@"login failed = %@", error);
+}];
+}
+```
+### 4.3 Password reset by users
+
+#### Password reset with a mail address
+Resetting a password with the E-mail address consists of two steps:
+* Sending a verification code to the mailbox
+
+```objc
+-(void)sendVerifyCodeByEmail{
+[[EHOMEUserModel shareInstance] sendVerifyCodeByEmail:@"your_email" success:^(id responseObject) {
+NSLog(@"Verify Code sent success. res = %@", responseObject);            
+} failure:^(NSError *error) {
+NSLog(@"Verify Code sent filed. error = %@", error);
+}];
+}
+```
+
+* The verification code received is then used to reset the password
+
+```objc
+-(void)resetPasswordByEmail {
+[[EHOMEUserModel shareInstance] resetPasswordByEmail:@"your_email" newPassword:@"your_password" code:@"verify_code" success:^(id responseObject) {
+NSLog(@"Reset password success. res = %@", responseObject);
+} failure:^(NSError *error) {
+NSLog(@"Reset password failed. error = %@", error);
+}];
+}
+```
+
+### 4.4 Password reset by old password
+Resetting a password with the E-mail address and old password
+
+```objc
+-(void)resetPasswordByOldPassword{
+[[EHOMEUserModel shareInstance] resetPasswordByOldPassword:@"your_old_password" newPassword: @"your_new_password" email:@"your_email" success:^(id responseObject) {
+NSLog(@"Reset Password Success = %@", responseObject);
+} failure:^(NSError *error) {
+NSLog(@"Reset Password Failed = %@", error);
+}];
+}
+```
+
+### 4.5 Updating a user’s device list
+Using the `[[EHOMEUserModel shareInstance] syncDeviceWithCloud…]` method will update the user’s current device list `deviceArray`.
+
+Each of the deviceArray is `<EHOMEDeviceModel * >`. And the device properties are in `EHOMEDeviceModel.h`.
+
+```objc
+-(void)reloadDeviceList{
+[[EHOMEUserModel shareInstance] syncDeviceWithCloud:^(id responseObject) {
+NSLog(@"Get my devices successful : %@", responseObject);
+NSLog(@"deviceArray : %@", [EHOMEUserModel shareInstance].deviceArray);
+} failure:^(NSError *error) {
+NSLog(@"Get my devices failed : %@", error);
+}];
+}
+```
+
+### 4.6 Handling device list changes
+Listen for the `EHOMEUserNotificationDeviceArrayChanged` notification, so that a notification can be received in the case of any change to the device list `[EHOMEUserModel shareInstance].deviceArray` data.
+
+```objc
+//register notice EHOMEUserNotificationDeviceArrayChanged -(void)viewDidLoad{ 
+//Register Notice
+[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name: EHOMEUserNotificationDeviceArrayChanged object:nil];
+}  -(void)reloadData{     //Refresh UI here }  -(void)dealloc{     [[NSNotificationCenter defaultCenter] removeObserver:self]; }
+```
+
+### 4.7 Updating a user’s received shared device list
+Using the `[[EHOMEUserModel shareInstance] syncSharedDeviceWithCloud…]` method will update the user’s current shared device list `sharedDeviceArray`.
+
+```objc
+-(void)reloadSharedDeviceList{
+[[EHOMEUserModel shareInstance] syncSharedDeviceWithCloud:^(id responseObject) {
+NSLog(@"Get shared devices successful : %@", responseObject);
+NSLog(@"sharedDeviceArray : %@", [EHOMEUserModel shareInstance].sharedDeviceArray);
+} failure:^(NSError *error) {
+NSLog(@"Get shared devices failed : %@", error);
+}];
+}
+```
+
+### 4.8 Handling shared device list changes
+Listen for the `EHOMEUserNotificationSharedDeviceArrayChanged` notification, so that a notification can be received in the case of any change to the device list `[EHOMEUserModel shareInstance].sharedDeviceArray` data.
+
+```objc
+//register notice EHOMEUserNotificationSharedDeviceArrayChanged -(void)viewDidLoad{ 
+//Register Notice
+[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name: EHOMEUserNotificationSharedDeviceArrayChanged object:nil];
+}  -(void)reloadData{     //Refresh UI here }  -(void)dealloc{     [[NSNotificationCenter defaultCenter] removeObserver:self]; }
+```
+
+### 4.9 Update the nickname
+
+```objc
+-(void)updateNickname:(NSString *)nickname{     [[EHOMEUserModel shareInstance] updateNickname:@"your_nickname" success:^(id responseObject) {
+NSLog(@"update nickname success. res = %@", responseObject);                
+} failure:^(NSError *error) {
+NSLog(@"update nickname failed. error = %@", error);
+}];
+}
+```
+
+### 4.10 Logout
+
+```objc
+-(void)loginOut{
+[[EHOMEUserModel shareInstance] loginOut:^(id responseObject) {
+NSLog(@"logOut success = %@", responseObject);
+} failure:^(NSError *error) {
+NSLog(@"logOut failed = %@", error);
+}];
+}
+```
+
+
+
+## 5. SmartConfig and Device Init
+### 5.1 SmartConfig
 The device uses the EHOMESmartConfig singleton function to perform network distribution, and calls the smartConfigWithWifiPasseord function to get wifi password connected to the mobile phone.
 Just tell us the password of your wifi.
 ```objc
-[[EHOMESmartConfig shareInstance] smartConfigWithWifiPassword:_wifiPassword startBlock:^{
-    NSLog(@"Start to smart config...");
-} progressBlock:^(NSProgress *progress) {
-    NSLog(@"smart config progress = %@", progress);
-} successBlock:^(id responseObject) {
-    NSLog(@"Smart config success = %@", responseObject);
-    NSInteger protocol = [[responseObject objectForKey:@"protocol"] integerValue];
-    //if protocol is equal to 9,smart config success.else,the device is other's.
-    if (protocol == 9) {
-        //success
-    }else{
-        //the device is other's,get the owner's email
-        NSString *email = [[responseObject objectForKey:@"data"] objectForKey:@"email"];
-    }
-} failBlock:^(NSError *error) {
-    NSLog(@"Smart config failed = %@", error);
+-(void)smartConfig{
+[[EHOMESmartConfig shareInstance] startSmartConfigWithSsid:@"your_ssid" bssid:@"your_bssid" password:@"your_wifi_password" success:^(id responseObject) {
+NSLog(@"Smart config success = %@", responseObject);
+
+NSInteger protocol = [[responseObject objectForKey:@"protocol"] integerValue];
+//if protocol == 9,it’s your device;else,the device is other’s,you can get the eamil
+if (protocol == 9) {
+//success
+}else{
+//the device is other's
+NSString *email = [[responseObject objectForKey:@"data"] objectForKey:@"email"];
+}
+} failure:^(NSError *error) {
+NSLog(@"Smart config failed = %@", error);
 }];
+}
 ```
-#### 3.2 Device Init
+
+### 5.2 Device Init
 After finishing the SmartConfig procedure, the device should be init with devId and device name.
 ```objc
-[EHOMEDeviceModel getStartedWithDevId:devId deviceName:deviceName startBlock:^{       
-
-    //init...
-
-} successBlock:^(id responseObject) {
-
-    //init success
-
-} failBlock:^(NSError *error) {
-
-    //init failed
-
+-(void)getStarted{
+[[EHOMESmartConfig shareInstance] getStartedWithDevId:@"your_device_devId" deviceName:@"your_deviceName" success:^(id responseObject) {
+NSLog(@"GET STARTED Success = %@", responseObject);
+} failure:^(NSError *error) {
+NSLog(@"GET STARTED Failed = %@", error);
 }];
+}  
 ```
-### 4. Device Controlling
-#### 4.1 Get My Devices List
-Get the device list and return an array of <EHOMEDeviceModel * >. The device properties are in EHOMEDeviceModel.h.
-```objc
-[EHOMEDeviceModel getMyDeviceListWithStartBlock:^{
-    //Start getting my devices...
-} successBlock:^(id responseObject) {
-    //Return the device array, which is encapsulated by EHOMEDeviceModel.
-} failBlock:^(NSError *error) {
-    //Get my devices failed
-}];
-```
-#### 4.2 Operate Device
-Just tell us which device and the device status you want it to be.
-```objc
-[EHOMEDeviceModel switchDeviceStatusWithDeviceModel:deviceModel toStatus:isOn startBlock:^{
-    //controlling...
-} successBlock:^(id responseObject) {
-    //control success
-} failBlock:^(NSError *error) {
-    //control failed
-}];
-```
-#### 4.3 Edit the device name
+
+## 6. Device Control
+
+### 6.1 OnOff device
 
 ```objc
-[EHOMEDeviceModel updateDeviceNameWithDeviceModel:deviceModel name:@"newName" startBlock:^{
-
-} suucessBlock:^(id responseObject) {
-
-} failBlock:^(NSError *error) {
-
+-(void)updateDeviceStatus:(BOOL)status{
+[seld.device updateDeviceStatus:@"your_status" success:^(id responseObject) {
+NSLog(@"update device status success. res = %@", responseObject);
+} failure:^(NSError *error) {
+NSLog(@"update device status failed. error = %@", error);
 }];
+}
 ```
-#### 4.4 Unbind device
+
+### 6.2 Rename device
 
 ```objc
-[EHOMEDeviceModel unBindDeviceWithDeviceModel:deviceModel startBlock:^{
-
-} suucessBlock:^(id responseObject) {
-
-} failBlock:^(NSError *error) {
-
+-(void)updateDeviceName:(NSString *)deviceName{
+[self.device updateDeviceName:@"your_deviceName" success:^(id responseObject) {
+NSLog(@"update device name success. res = %@", responseObject);            
+} failure:^(NSError *error) {
+NSLog(@"update device name failed. error = %@", error);
 }];
+}
 ```
-#### 4.5 Share device by QR code
-The sharing device is coordinated by the device owner and the shared person. This scheme is to achieve the purpose of sharing devices by scanning the QR Code. First of all, the owner of the device spliced into a string by including information such as the owner id "adminUserId", device id "deviceId", timestamp "timestamp", etc. The string generates a QR Code for the shared user to scan the code to obtain the information and then pass it to the following method. After success, the sharedUser can further control the device.
+
+### 6.3 Remove device
+
 ```objc
-[EHOMEDeviceModel sharedDeviceWithAdminUserId:adminUserId sharedUserId:sharedUserId deviceId:deviceid timestamp:timestamp startBlock:^{
-
-} suucessBlock:^(id responseObject) {
-
-} failBlock:^(NSError *error) {
-
+-(void)removeDevice{
+[self.device removeDevice:^(id responseObject) {
+NSLog(@"remove device success = %@", responseObject);
+} failure:^(NSError *error) {
+NSLog(@"remove device failed = %@", error);
 }];
+}
 ```
 
-Note: QR code is a bit more complex for users, and it may be kicked out. Share device by email will be provided on June 6, 2018. By then, you can share device only by email. It is very simple.
+### 6.4 Share device by email
 
-#### 4.6 Timing Countdown
+```objc
+-(void)shareDeviceByEmail{
+[self.device shareDeviceByEmail:@"your_friend_email" success:^(id responseObject) {
+NSLog(@"share device success. res = %@", responseObject);
+} failure:^(NSError *error) {
+NSLog(@"share device failed. error = %@", error);
+}];
+}
+```
+
+### 6.5 Remove shares
+After deleting a share, you will not be able to use his or her devices, or he/she will not be able to use your devices.
+
+
+
+## 7. Timer
+
+All functions related to regular tasks correspond to the TuyaSmartTimer class.
+**Note:** loops: @“0000000”, each bit, 0: off, 1: on, representing from left to right: Sunday Saturday Friday Thursday Wednesday Tuesday Monday
+
+### 7.1 Add timer
+Set a timer to operate the device on some specifical time.Your operation on the device will take effect once the time of the timer arrives.
+@param loops
+@param finishTime : the time user set to, like: @"18:57"
+@param status : the status of the device is to be when timer arrives
+
+```objc
+-(void)addTimer{
+[self.device addTimerWithLoops:@"your_loops" time:@"your_time" status:@"your_status" success:^(id responseObject) {
+NSLog(@"add timer success, response = %@", responseObject);
+} failure:^(NSError *error) {
+NSLog(@"add timer failed, error = %@", error);
+}];
+}
+```
+
+### 7.2 Update timer
+
+```objc
+-(void)updateTimer{
+[self.device updateTimerWithLoops:@"your_loops" time:@"your_time" status:@"your_status" success:^(id responseObject) {
+NSLog(@"update timer success, response = %@", responseObject);
+} failure:^(NSError *error) {
+NSLog(@"update timer failed, error = %@", error);
+}];
+}
+```
+
+### 7.3 Update timer status
+Update the status of a specified timer under a specified device, 0: off, 1: on
+
+```objc
+-(void)updateTimerStatus:(BOOL)status{
+[self.timer updateTimerStatus:@"your_timerStatus" success:^(id responseObject) {
+NSLog(@"update timer status success.response = %@", responseObject);        
+} failure:^(NSError *error) {
+NSLog(@"update timer status failed.error = %@", error);
+}];
+}
+```
+
+### 7.4 Remove a timer
+Delete a specified timer under a specified device
+
+```objc
+- (void)removeTimer {     [self.timer removeTimer:^(id responseObject) {
+NSLog(@"remove timer success.response = %@", responseObject);
+} failure:^(NSError *error) {
+NSLog(@"remove timer failed.error = %@", error);
+}];
+}
+```
+
+### 7.5 Obtain all timers
+Obtain all timers under a specified device
+
+```objc
+- (void)getAllTimers{
+[self.device getAllTimers:^(id responseObject) {
+NSLog(@"get all timers success,timers = %@", responseObject);
+} failure:^(NSError *error) {
+NSLog(@"get all timers failed,error = %@", error);
+}];
+}
+```
+
+## 8. Timing Countdown
+Timing Countdown for a specific device
+
+### 8.1 Add a timing countdown
 Your operation on the device will take effect once timing countdown is finished.
-@param deviceModel: the device do you want to set timing countdown
-@param isOn: the status of the device is to be when countdown is finished
-@param duration: the duration of timing countdown. The unit is second, such as 10seconds; if 10 minutes, the value is 600.
+
+@param status : the status of the device is to be when countdown is finished
+@param duration : the duration of timing countdown. The unit is second, such as 10seconds; if 10 minutes, the value is 600.
 
 ```objc
-[EHOMEDeviceModel countdownDeviceWithDeviceModel:deviceModel toStatus:isOn duration:Duration startBlock:^{
-
-} successBlock:^(id responseObject) {
-
-} failBlock:^(NSError *error) {
-
+-(void)addTimingCountdown{
+[self.device addTimingCountdownWithDuration:"your_duration" status:"your_status" success:^(id responseObject) {
+NSLog(@"add timing countdown success. res = %@", responseObject);
+int duration = [[responseObject objectForKey:@"duration"] intValue];
+} failure:^(NSError *error) {            
+NSLog(@"add timing countdown failed. error = %@", error);
 }];
+}
 ```
 
-Note: APIs for cancel timeing countdown will provided June 6.
-
-#### 4.7 Add timer
-
-Your operation on the device will take effect once the time of the timer arrives.
-Set a timer to operate the device on some specifical time.
-
-@param deviceModel: the device do you want to set a timer
-@param day sequence: which day do you want to execute? 0 means unabled, 1 means enabled,and the order of days are:
-Sunday Saturday Friday Thursday Wednesday Tuesday Monday
-for example:
-timer avaliable on Thursday and Monday,the param of "day sequence" is @"0001001"; if Sunday, "day sequence" is @"1000000"
-@param finishTime: the time user set to, @"1857" means time is 18:57
-@param isOn: the status of the device is to be when timer arrives
+### 8.2 Obtain a timing countdown
 
 ```objc
-[EHOMEDeviceModel addTimerClockWithDeviceModel:deviceModel days:@"0010000" finishTime:@"1857" isOn:YES startBlock:^{
-
-} successBlock:^(id responseObject) {
-
-} failBlock:^(NSError *error) {
-
+-(void)getTimingCountdown{
+[self.device getTimingCountdown:^(id responseObject) {
+NSLog(@"get timing countdown success. res = %@", responseObject);
+EHOMETimer *timer = responseObject;
+} failure:^(NSError *error) {
+NSLog(@"get timing countdown failed. error = %@", error);
 }];
+}  
 ```
 
-Note: APIs for cancel timer and timer list will provided June 6.
+### 8.3 Update a timing countdown
+
+
+
+
 
 ## Welcome to contact us:
-* iOS Contributors: Yiran Ding, Wei Zhou, Linjun Chen
+* iOS Contributors: Yiran Ding, IIDreams, Linjun Chen
 * Email : zhouwei20150901@icloud.com, whatie@qq.com
 
 ## LICENSE
