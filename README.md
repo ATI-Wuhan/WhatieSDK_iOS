@@ -145,7 +145,7 @@ Upon a successful call, the user’s session will be stored locally by the SDK. 
 
 ### 4.3 Password reset by users
 
-#### Password reset with a email address
+#### Password reset with an email address
 If you forget your password, you can reset your password with the e-mail address consisting of two steps:
 * Sending a verification code to the mailbox
 
