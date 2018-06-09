@@ -49,8 +49,10 @@ SDK Demo is a complete APP incorporating the main flows and operations such as r
 
 ### Use CocoaPods for rapid integration (Note: version 8.0 or above is supported)
 Add the following content in file `Podfile`:
-```
-platform :ios, '8.0'   target 'Your_Project_Name' do       pod 'WhatieSDK',:git => 'https://github.com/ATI-Wuhan/WhatieSDK_iOS.git'  
+```objc
+platform :ios, '8.0'   
+target 'Your_Project_Name' do       
+    pod 'WhatieSDK',:git => 'https://github.com/ATI-Wuhan/WhatieSDK_iOS.git'  
 end
 ```
 [![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/pod.png)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/pod.png)
@@ -86,7 +88,15 @@ Now, all the preparing work has been done.
 The following example code, unless otherwise stated, all instances are located in the implementation file of the `ViewController` class.
 
 ```objc
-@interface ViewController : UIViewController  @end  @implementation ViewController  //All example code are located here...  @end
+@interface ViewController : UIViewController  
+
+@end
+
+  @implementation ViewController  
+
+//All example code are located here...  
+
+@end
 ```
 
 
@@ -109,7 +119,8 @@ All user-related functions can be found in the EHOMEUserModel class (singleton)
 No verification code is required during email registration. Users may register their accounts directly using their emails:
 
 ```objc
--(void)registerByEmail{     [[EHOMEUserModel shareInstance] registerByEmail:@"your_email" password:@"your_password" success:^(id responseObject) {
+-(void)registerByEmail{     
+    [[EHOMEUserModel shareInstance] registerByEmail:@"your_email" password:@"your_password" success:^(id responseObject) {
         NSLog(@"register success");            
     } failure:^(NSError *error) {
         NSLog(@"register failed");
@@ -123,7 +134,8 @@ Upon a successful call, the user’s session will be stored locally by the SDK. 
 #### Email login
 
 ```objc
--(void)loginByEmail{     [[EHOMEUserModel shareInstance] loginByEmail:@"your_email" password:@"your_password" success:^(id responseObject) {
+-(void)loginByEmail{     
+    [[EHOMEUserModel shareInstance] loginByEmail:@"your_email" password:@"your_password" success:^(id responseObject) {
         NSLog(@"login success = %@", responseObject);
     } failure:^(NSError *error) {
         NSLog(@"login failed = %@", error);
@@ -192,10 +204,19 @@ Each of the deviceArray is `<EHOMEDeviceModel * >`. And the device properties ar
 Listen for the `EHOMEUserNotificationDeviceArrayChanged` notification, so that a notification can be received in the case of any changes to the device list `[EHOMEUserModel shareInstance].deviceArray` data.
 
 ```objc
-//register notice EHOMEUserNotificationDeviceArrayChanged -(void)viewDidLoad{
+//register notice EHOMEUserNotificationDeviceArrayChanged 
+-(void)viewDidLoad{
     //Register Notice
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name: EHOMEUserNotificationDeviceArrayChanged object:nil];
-}  -(void)reloadData{     //Refresh UI here }  -(void)dealloc{     [[NSNotificationCenter defaultCenter] removeObserver:self]; }
+}  
+
+-(void)reloadData{     
+    //Refresh UI here 
+}
+
+  -(void)dealloc{ 
+    [[NSNotificationCenter defaultCenter] removeObserver:self]; 
+}
 ```
 
 ### 4.7 Update a user’s received shared device list
@@ -216,16 +237,26 @@ Using the `[[EHOMEUserModel shareInstance] syncSharedDeviceWithCloud…]` metho
 Listen for the `EHOMEUserNotificationSharedDeviceArrayChanged` notification, so that a notification can be received in the case of any change to the device list `[EHOMEUserModel shareInstance].sharedDeviceArray` data.
 
 ```objc
-//register notice EHOMEUserNotificationSharedDeviceArrayChanged -(void)viewDidLoad{<br>
-    //Register Notice<br>
+//register notice EHOMEUserNotificationSharedDeviceArrayChanged 
+-(void)viewDidLoad{
+    //Register Notice
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name: EHOMEUserNotificationSharedDeviceArrayChanged object:nil];
-}<br>  -(void)reloadData{<br>     //Refresh UI here<br> }<br>  -(void)dealloc{<br>     [[NSNotificationCenter defaultCenter] removeObserver:self];<br> }
+}  
+
+-(void)reloadData{ 
+    //Refresh UI here
+}
+
+  -(void)dealloc{     
+    [[NSNotificationCenter defaultCenter] removeObserver:self]; 
+}
 ```
 
 ### 4.9 Update the nickname
 The user can change user name by update the nickname method, as below:
 ```objc
--(void)updateNickname:(NSString *)nickname{     [[EHOMEUserModel shareInstance] updateNickname:@"your_nickname" success:^(id responseObject) {
+-(void)updateNickname:(NSString *)nickname{     
+    [[EHOMEUserModel shareInstance] updateNickname:@"your_nickname" success:^(id responseObject) {
         NSLog(@"update nickname success. res = %@", responseObject);                
     } failure:^(NSError *error) {
         NSLog(@"update nickname failed. error = %@", error);
@@ -359,7 +390,7 @@ Set a timer to operate the device on some specifical time.Your operation on the 
 You can update/modify the assigned timer by:
 ```objc
 -(void)updateTimer{
-[self.device updateTimerWithLoops:@"your_loops" time:@"your_time" status:@"your_status" success:^(id responseObject) {
+    [self.device updateTimerWithLoops:@"your_loops" time:@"your_time" status:@"your_status" success:^(id responseObject) {
         NSLog(@"update timer success, response = %@", responseObject);
     } failure:^(NSError *error) {
         NSLog(@"update timer failed, error = %@", error);
@@ -384,7 +415,8 @@ Update the status of a specified timer under a specified device, i.e., 0: off, 1
 Delete a specified timer under a specified device by:
 
 ```objc
-- (void)removeTimer {     [self.timer removeTimer:^(id responseObject) {
+- (void)removeTimer {     
+    [self.timer removeTimer:^(id responseObject) {
         NSLog(@"remove timer success.response = %@", responseObject);
     } failure:^(NSError *error) {
         NSLog(@"remove timer failed.error = %@", error);
