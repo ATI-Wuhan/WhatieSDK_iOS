@@ -1,7 +1,7 @@
 
 ![](https://img.shields.io/badge/platform-iOS-red.svg) ![](https://img.shields.io/badge/language-Objective--C-orange.svg) [![CocoaPods compatible](https://img.shields.io/cocoapods/v/WhatieSDK.svg?style=flat)](https://cocoapods.org/pods/WhatieSDK) ![](https://img.shields.io/badge/license-MIT%20License-brightgreen.svg)  
 
-## WahtieSDK Version 1.1.3 updated at 2018-06-08
+## WahtieSDK Version 1.1.4 updated at 2018-06-09
 
 ```
 What's new:
