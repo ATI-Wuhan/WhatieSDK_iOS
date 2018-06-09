@@ -9,7 +9,7 @@ All APIs for electrical outlets. SDKs for bulbs will be provided about June 12, 
 ```
 ## 1.Features Overview
 
-WhatieSDK is an SDK provided by ATI TECHNOLOGY (WUHAN) CO.,LTD. for the 3rd party accessing to our ATI IoT cloud platform easily and quickly. Using this SDK, developers can do almost all function points on electrical outlets and RGBW bulbs (to be uploaded on June 12), such as user registration/login/logout, smart configuration, add/share/remove devices, device control, timing countdown, timer, etc. 
+WhatieSDK is a SDK provided by ATI TECHNOLOGY (WUHAN) CO.,LTD. for the 3rd party accessing to our ATI IoT cloud platform easily and quickly. Using this SDK, developers can do almost all function points on electrical outlets and RGBW bulbs (to be uploaded on June 12), such as user registration/login/logout, smart configuration, add/share/remove devices, device control, timing countdown, timer, etc. 
 
 [![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/1small.PNG)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/1.PNG)
 [![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/2small.PNG)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/2.PNG)
@@ -26,7 +26,7 @@ WhatieSDK is an SDK provided by ATI TECHNOLOGY (WUHAN) CO.,LTD. for the 3rd part
 ## 2.Preparation
 
 ### Sign up a developer account
-Sign up a 3rd part developer account at ATI cloud platform to create self-developed products, create functional points, and so on.
+Sign up a 3rd party developer account at ATI cloud platform to create self-developed products, create function points, and so on.
 
 **Note:** We have signed up an account for SAKAR, which has been emailed to SAKAR. SAKAR can just skip this step.
 
