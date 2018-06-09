@@ -9,7 +9,7 @@ All APIs for electrical outlets. SDKs for bulbs will be provided about June 12, 
 ```
 ## 1.Features Overview
 
-WhatieSDK is an SDK provided by ATI TECHNOLOGY (WUHAN) CO.,LTD. for the 3rd party accessing to our ATI IoT cloud platform easily and quickly. Using this SDK, developers can do almost all funcation points on electrical outlets and RGBW bulbs (to be uploaded on June 12), such as user registration/login/logout, smart configuration, add/share/remove devices, device control, timing countdown, timer, etc. 
+WhatieSDK is an SDK provided by ATI TECHNOLOGY (WUHAN) CO.,LTD. for the 3rd party accessing to our ATI IoT cloud platform easily and quickly. Using this SDK, developers can do almost all function points on electrical outlets and RGBW bulbs (to be uploaded on June 12), such as user registration/login/logout, smart configuration, add/share/remove devices, device control, timing countdown, timer, etc. 
 
 [![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/1small.PNG)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/1.PNG)
 [![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/2small.PNG)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/2.PNG)
@@ -19,14 +19,14 @@ WhatieSDK is an SDK provided by ATI TECHNOLOGY (WUHAN) CO.,LTD. for the 3rd part
 [![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/6small.PNG)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/6.PNG)
 
 
-**Note:** For all function points, no any backend development on cloud platform is needed for integrating the SDK into your APP. You just do all of your work in your APP side. 
+**Note:** For all function points, no any backend development on cloud platform is needed for integrating the SDK into your APP. You just do all your work in your APP side. 
 
 
 
 ## 2.Preparation
 
 ### Sign up a developer account
-Sign up a 3rd part developer account at ATI cloud platform to create self-developled products, create functional points, and so on.
+Sign up a 3rd part developer account at ATI cloud platform to create self-developed products, create functional points, and so on.
 
 **Note:** We have signed up an account for SAKAR, which has been emailed to SAKAR. SAKAR can just skip this step.
 
@@ -107,7 +107,7 @@ The SDK provides user management functions, such as user registration, user logi
 
 **Note:**
 1. all other information on user management procedure is not needed for SDK. 
-2. The user email and password ciphertext will be also stored in our cloud paltform. 
+2. The user email and password ciphertext will be also stored in our cloud platform. 
 3. No any backend development (on cloud side) is needed for integrating the SDK into your APP.
 
 All user-related functions can be found in the EHOMEUserModel class (singleton).
@@ -371,7 +371,7 @@ Please refer to 6.3 Remove device.
 **Important Note:** loops: @“0000000”, each bit, 0: off, 1: on, representing from left to right: Sunday Saturday Friday Thursday Wednesday Tuesday Monday
 
 ### 7.1 Add a timer
-Set a timer to operate the device on some specifical time.Your operation on the device will take effect once the time of the timer arrives.   
+Set a timer to operate the device on some specific time. Your operation on the device will take effect once the time of the timer arrives.   
 @param loops   
 @param finishTime : the time user set to, like: @"18:57"   
 @param status : the status of the device is to be when timer arrives
