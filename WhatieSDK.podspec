@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "WhatieSDK"
-  s.version      = "1.1.3"
+  s.version      = "1.1.4"
   s.summary      = "WhatieSDK is provided by ATI TECHNOLOGY (WUHAN) CO.,LTD."
 
   # This description is used to generate tags and improve search results.
