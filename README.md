@@ -37,7 +37,7 @@ Go to Development Platform - Application Management - Create a new application t
 **Note:** We have applied appId and secretKey for SAKAR, which has been emailed to SAKAR. SAKAR can just skip this step.
 
 ### SDK Demo
-SDK Demo is a complete APP incorporating the main flows and operations such as registration, login, sharing, feedback, network configuration and device control, etc. The Demo code can be used as a good reference for the 3rd part development. [Download link](https://github.com/ATI-Wuhan/WhatieSDKDemo_iOS)
+SDK Demo is a complete APP incorporating the main flows and operations such as registration, login, sharing, feedback, network configuration and device control, etc. The Demo code can be used as a good reference for the 3rd party development. [Download link](https://github.com/ATI-Wuhan/WhatieSDKDemo_iOS)
 
 
 
