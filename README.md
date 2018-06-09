@@ -129,7 +129,7 @@ No verification code is required during email registration. Users may register t
 ```
 
 ### 4.2 User login
-Upon a successful call, the user’s session will be stored locally by the SDK. When the app is launched next time, the used is logged in by default, and no more login action is required.
+Upon a successful call, the user’s session will be stored locally by the SDK. When the app is launched next time, the user is logged in by default, and no more login action is required.
 
 #### Email login
 
