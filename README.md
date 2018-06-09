@@ -480,5 +480,5 @@ Once you update a timing countdown, it will become a new one. Please refer to 8.
 * Email : zhouwei20150901@icloud.com, whatie@qq.com
 
 ## LICENSE
-WhatieSDK use MIT LICENSE, LICENSE file detail.
+WhatieSDK use MIT LICENSE.
 
