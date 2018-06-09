@@ -371,9 +371,9 @@ Please refer to 6.3 Remove device.
 **Important Note:** loops: @“0000000”, each bit, 0: off, 1: on, representing from left to right: Sunday Saturday Friday Thursday Wednesday Tuesday Monday
 
 ### 7.1 Add a timer
-Set a timer to operate the device on some specifical time.Your operation on the device will take effect once the time of the timer arrives.
-@param loops
-@param finishTime : the time user set to, like: @"18:57"
+Set a timer to operate the device on some specifical time.Your operation on the device will take effect once the time of the timer arrives.   
+@param loops   
+@param finishTime : the time user set to, like: @"18:57"   
 @param status : the status of the device is to be when timer arrives
 
 ```objc
@@ -441,9 +441,8 @@ Obtain all timers under a specified device by:
 You can create a timing countdown for a specific device.
  
 ### 8.1 Add a timing countdown
-Your operation on the device will take effect once timing countdown is finished.
-
-@param status : the status of the device is to be when countdown is finished
+Your operation on the device will take effect once timing countdown is finished.   
+@param status : the status of the device is to be when countdown is finished   
 @param duration : the duration of timing countdown. The unit is second, such as 10seconds; if 10 minutes, the value is 600.
 
 ```objc
