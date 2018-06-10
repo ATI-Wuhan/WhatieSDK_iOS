@@ -5,7 +5,7 @@
 
 ```
 What's new:
-All APIs for electrical outlets. SDKs for bulbs will be provided about June 12, 2018. 
+All APIs for electrical outlets. SDKs/DEMO APPs/SDK usage manuals for bulbs will be provided about June 15, 2018. 
 ```
 ## 1.Features Overview
 
