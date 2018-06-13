@@ -5,11 +5,11 @@
 
 ```
 What's new:
-All APIs for electrical outlets. SDKs for bulbs will be provided about June 12, 2018. 
+All APIs for electrical outlets. SDKs/DEMO APPs/SDK usage manuals for bulbs will be provided about June 15, 2018. 
 ```
 ## 1.Features Overview
 
-WhatieSDK is a SDK provided by ATI TECHNOLOGY (WUHAN) CO.,LTD. for the 3rd party accessing to our ATI IoT cloud platform easily and quickly. Using this SDK, developers can do almost all function points on electrical outlets and RGBW bulbs (to be uploaded on June 12), such as user registration/login/logout, smart configuration, add/share/remove devices, device control, timing countdown, timer, etc. 
+WhatieSDK is a SDK provided by ATI TECHNOLOGY (WUHAN) CO.,LTD. for the 3rd party accessing to our ATI IoT cloud platform easily and quickly. Using this SDK, developers can do almost all function points on electrical outlets and RGBW bulbs (to be uploaded on June 15), such as user registration/login/logout, smart configuration, add/share/remove devices, device control, timing countdown, timer, etc. 
 
 [![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/1small.PNG)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/1.PNG)
 [![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/2small.PNG)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/2.PNG)
@@ -145,7 +145,7 @@ Upon a successful call, the user’s session will be stored locally by the SDK. 
 
 ### 4.3 Password reset by users
 
-#### Password reset with a email address
+#### Password reset with an email address
 If you forget your password, you can reset your password with the e-mail address consisting of two steps:
 * Sending a verification code to the mailbox
 
