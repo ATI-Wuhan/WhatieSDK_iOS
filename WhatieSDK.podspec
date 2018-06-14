@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "WhatieSDK"
-  s.version      = "1.1.6"
+  s.version      = "1.1.7"
   s.summary      = "WhatieSDK is provided by ATI TECHNOLOGY (WUHAN) CO.,LTD."
 
   # This description is used to generate tags and improve search results.
@@ -136,6 +136,8 @@ Pod::Spec.new do |s|
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   s.dependency "CocoaAsyncSocket"
   s.dependency 'MQTTClient','0.8.8'
+
+  s.user_target_xcconfig = { 'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES' }
 
 
 end
