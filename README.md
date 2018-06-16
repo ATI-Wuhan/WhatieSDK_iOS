@@ -11,12 +11,13 @@ Now SDKs/DEMO APPs/SDK usage manuals for bulbs are available.
 
 WhatieSDK is a SDK provided by ATI TECHNOLOGY (WUHAN) CO.,LTD. for the 3rd party accessing to our ATI IoT cloud platform easily and quickly. Using this SDK, developers can do almost all function points on electrical outlets and RGBW bulbs (to be uploaded on June 15), such as user registration/login/logout, smart configuration, add/share/remove devices, device control, timing countdown, timer, etc. 
 
-[![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/1small.PNG)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/1.PNG)
-[![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/2small.PNG)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/2.PNG)
-[![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/3small.PNG)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/3.PNG)
-[![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/4small.PNG)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/4.PNG)
-[![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/5small.PNG)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/5.PNG)
-[![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/6small.PNG)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/6.PNG)
+[![](https://github.com/ATI-Wuhan/WhatieSDKDemo_iOS/blob/master/images/1small.PNG)](https://github.com/ATI-Wuhan/WhatieSDKDemo_iOS/blob/master/images/1.PNG)
+[![](https://github.com/ATI-Wuhan/WhatieSDKDemo_iOS/blob/master/images/2small.PNG)](https://github.com/ATI-Wuhan/WhatieSDKDemo_iOS/blob/master/images/2.PNG)
+[![](https://github.com/ATI-Wuhan/WhatieSDKDemo_iOS/blob/master/images/3small.PNG)](https://github.com/ATI-Wuhan/WhatieSDKDemo_iOS/blob/master/images/3.PNG)
+[![](https://github.com/ATI-Wuhan/WhatieSDKDemo_iOS/blob/master/images/4small.PNG)](https://github.com/ATI-Wuhan/WhatieSDKDemo_iOS/blob/master/images/4.PNG)
+[![](https://github.com/ATI-Wuhan/WhatieSDKDemo_iOS/blob/master/images/5small.PNG)](https://github.com/ATI-Wuhan/WhatieSDKDemo_iOS/blob/master/images/5.PNG)
+[![](https://github.com/ATI-Wuhan/WhatieSDKDemo_iOS/blob/master/images/6small.PNG)](https://github.com/ATI-Wuhan/WhatieSDKDemo_iOS/blob/master/images/6.PNG)
+[![](https://github.com/ATI-Wuhan/WhatieSDKDemo_iOS/blob/master/images/7small.PNG)](https://github.com/ATI-Wuhan/WhatieSDKDemo_iOS/blob/master/images/7.PNG)
 
 
 **Note:** For all function points, no any backend development on cloud platform is needed for integrating the SDK into your APP. You just do all your work in your APP side. 
@@ -473,7 +474,114 @@ Get a timing countdown under a specific device, and then, you can show its value
 Once you update a timing countdown, it will become a new one. Please refer to 8.1 Add a timing countdown.
 
 
-## 9. 
+## 9. Light/Bulbs
+
+### 9.1 On/Off
+
+Please refer to 6.1 On/Off the device.
+
+
+### 9.2 Incandescent Light
+You can update brightness for a specific light by following method:
+
+```objc
+-(void)brightnessSliderValueChange:(UISlider *)slider{
+    
+    NSLog(@"brightness slider value = %f", slider.value);
+
+    
+    [self.device updateIncandescentLightBrightness:(int)slider.value success:^(id responseObject) {
+        
+    } failure:^(NSError *error) {
+        
+    }];    
+}
+```
+
+### 9.3 RGB Light
+
+#### 9.3.1 Update RGB Light Color
+You can update color for a specific RGB light by following method:
+
+```objc
+-(void)updateRGBLightColor{
+    
+        NSString *rgb = [NSString stringWithFormat:@"%d_%d_%d", r, g, b];
+
+
+        [self.device updateRGBLightColorWithRGB:rgb success:^(id responseObject) {
+            
+        } failure:^(NSError *error) {
+            
+        }];
+}
+```
+
+#### 9.3.2 Update RGB Light Brightness
+You can update brightness for a specific RGB light by following method:
+
+```objc
+-(void)rgbBrightnessSliderValueChange:(UISlider *)slider{
+    
+    NSLog(@"rgb brightness slider value = %f", slider.value);
+    
+    [self.device updateRGBLightBrightness:(int)slider.value success:^(id responseObject) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
+}
+```
+
+
+### 9.4 Stream Light
+
+#### 9.4.1 Update Stream Light Color
+You can update color for specific stream light by following method:
+
+```objc
+-(void)updateStreamLightColor{
+
+    [self.device updateStreamLightColorWithRGB1:@"your_rgb_color_1" RGB2:@"your_rgb_color_2" RGB3:@"your_rgb_color_3" RGB4:@"your_rgb_color_4" success:^(id responseObject) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
+
+}
+```
+
+#### 9.4.1 Update Stream Light Duration
+You can update duration for specific stream light by following method:
+
+```objc
+-(void)updateStreamLightDuration{
+
+    
+    [self.device updateStreamLightDuration:(int)@"your_duration" success:^(id responseObject) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
+
+}
+```
+
+#### 9.4.1 Update Stream Light Brightness
+You can update brightness for specific stream light by following method:
+
+```objc
+-(void)updateStreamLightBrightness{
+
+    [self.device updateStreamLightBrightness:(int)@"your_brightness" success:^(id responseObject) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
+}
+```
+
+
 
 
 
