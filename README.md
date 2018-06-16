@@ -33,7 +33,7 @@ Sign up a 3rd party developer account at ATI cloud platform to create self-deve
 
 ### Obtain appId and secretKey
 Go to Development Platform - Application Management - Create a new application to obtain an `appId` and `secretKey` to initialize SDKs (for both Android and iOS).
-[![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/appId.png)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/appId.png)
+[![](https://github.com/ATI-Wuhan/WhatieSDKDemo_iOS/blob/master/images/appId.png)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/appId.png)
 
 **Note:** We have applied appId and secretKey for SAKAR, which has been emailed to SAKAR. SAKAR can just skip this step.
 
@@ -56,7 +56,7 @@ target 'Your_Project_Name' do   
     pod 'WhatieSDK',:git => 'https://github.com/ATI-Wuhan/WhatieSDK_iOS.git'  
 end
 ```
-[![](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/pod.png)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/pod.png)
+[![](https://github.com/ATI-Wuhan/WhatieSDKDemo_iOS/blob/master/images/pod.png)](https://github.com/ATI-Wuhan/WhatieSDK_iOS/blob/master/images/pod.png)
 
 Execute the command `pod install` in the project’s root directory to begin the integration procedure.
 For instructions of CocoaPods, please refer to [CocoaPods Guides](https://guides.cocoapods.org)
