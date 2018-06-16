@@ -551,7 +551,7 @@ You can update color for specific stream light by following method:
 }
 ```
 
-#### 9.4.1 Update Stream Light Duration
+#### 9.4.2 Update Stream Light Duration
 You can update duration for specific stream light by following method:
 
 ```objc
@@ -567,7 +567,7 @@ You can update duration for specific stream light by following method:
 }
 ```
 
-#### 9.4.1 Update Stream Light Brightness
+#### 9.4.3 Update Stream Light Brightness
 You can update brightness for specific stream light by following method:
 
 ```objc
