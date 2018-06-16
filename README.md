@@ -1,11 +1,11 @@
 
 ![](https://img.shields.io/badge/platform-iOS-red.svg) ![](https://img.shields.io/badge/language-Objective--C-orange.svg) [![CocoaPods compatible](https://img.shields.io/cocoapods/v/WhatieSDK.svg?style=flat)](https://cocoapods.org/pods/WhatieSDK) ![](https://img.shields.io/badge/license-MIT%20License-brightgreen.svg)  
 
-## WahtieSDK Version 1.1.5 updated at 2018-06-13
+## WahtieSDK Version 1.1.8 updated at 2018-06-16
 
 ```
 What's new:
-All APIs for electrical outlets. SDKs/DEMO APPs/SDK usage manuals for bulbs will be provided about June 15, 2018. 
+Now SDKs/DEMO APPs/SDK usage manuals for bulbs are available. 
 ```
 ## 1.Features Overview
 
@@ -471,6 +471,9 @@ Get a timing countdown under a specific device, and then, you can show its value
 
 ### 8.3 Update a timing countdown
 Once you update a timing countdown, it will become a new one. Please refer to 8.1 Add a timing countdown.
+
+
+## 9. 
 
 
 
