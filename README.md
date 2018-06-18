@@ -592,4 +592,3 @@ You can update luminance for a specific stream light by the following method:
 
 ## LICENSE
 WhatieSDK uses MIT LICENSE.
-
