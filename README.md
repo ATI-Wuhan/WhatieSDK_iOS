@@ -5,11 +5,11 @@
 
 ```
 What's new:
-Now SDKs/DEMO APPs/SDK usage manuals for bulbs are available. 
+Now SDK, DEMO APP, and SDK usage manual for bulbs are available. 
 ```
 ## 1.Features Overview
 
-WhatieSDK is a SDK provided by ATI TECHNOLOGY (WUHAN) CO.,LTD. for the 3rd party accessing to our ATI IoT cloud platform easily and quickly. Using this SDK, developers can do almost all function points on electrical outlets and RGBW bulbs (to be uploaded on June 15), such as user registration/login/logout, smart configuration, add/share/remove devices, device control, timing countdown, timer, etc. 
+WhatieSDK is a SDK provided by ATI TECHNOLOGY (WUHAN) CO.,LTD. for the 3rd party accessing to our ATI IoT cloud platform easily and quickly. Using this SDK, developers can do almost all function points on electrical outlets and RGBW bulbs, such as user registration/login/logout, smart configuration, add/share/remove devices, device control, timing countdown, timer, etc. 
 
 [![](https://github.com/ATI-Wuhan/WhatieSDKDemo_iOS/blob/master/images/1small.PNG)](https://github.com/ATI-Wuhan/WhatieSDKDemo_iOS/blob/master/images/1.PNG)
 [![](https://github.com/ATI-Wuhan/WhatieSDKDemo_iOS/blob/master/images/2small.PNG)](https://github.com/ATI-Wuhan/WhatieSDKDemo_iOS/blob/master/images/2.PNG)
@@ -478,11 +478,11 @@ Once you update a timing countdown, it will become a new one. Please refer to 8.
 
 ### 9.1 On/Off
 
-Please refer to 6.1 On/Off the device.
+Please refer to Chapter 6.1 On/Off the device.
 
 
-### 9.2 Incandescent Light
-You can update brightness for a specific light by following method:
+### 9.2 Incandescent Light/Bulb
+You can change luminance for a specific light by the following method:
 
 ```objc
 -(void)brightnessSliderValueChange:(UISlider *)slider{
@@ -498,10 +498,10 @@ You can update brightness for a specific light by following method:
 }
 ```
 
-### 9.3 RGB Light
+### 9.3 RGB Light/Bulb
 
-#### 9.3.1 Update RGB Light Color
-You can update color for a specific RGB light by following method:
+#### 9.3.1 Update RGB Light/Bulb Color
+You can update the color for a specific RGB ligth/bulb by the following method:
 
 ```objc
 -(void)updateRGBLightColor{
@@ -517,8 +517,8 @@ You can update color for a specific RGB light by following method:
 }
 ```
 
-#### 9.3.2 Update RGB Light Brightness
-You can update brightness for a specific RGB light by following method:
+#### 9.3.2 Update RGB Light/Bulb Luminance
+You can update luminance for a specific RGB light/bulb by the following method:
 
 ```objc
 -(void)rgbBrightnessSliderValueChange:(UISlider *)slider{
@@ -537,7 +537,7 @@ You can update brightness for a specific RGB light by following method:
 ### 9.4 Stream Light
 
 #### 9.4.1 Update Stream Light Color
-You can update color for specific stream light by following method:
+You can update the color for a specific stream light by the following method:
 
 ```objc
 -(void)updateStreamLightColor{
@@ -552,7 +552,7 @@ You can update color for specific stream light by following method:
 ```
 
 #### 9.4.2 Update Stream Light Duration
-You can update duration for specific stream light by following method:
+You can update the time duration for a specific stream light by the following method:
 
 ```objc
 -(void)updateStreamLightDuration{
@@ -567,8 +567,8 @@ You can update duration for specific stream light by following method:
 }
 ```
 
-#### 9.4.3 Update Stream Light Brightness
-You can update brightness for specific stream light by following method:
+#### 9.4.3 Update Stream Light Luminance
+You can update luminance for a specific stream light by the following method:
 
 ```objc
 -(void)updateStreamLightBrightness{
