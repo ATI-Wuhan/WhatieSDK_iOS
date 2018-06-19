@@ -5,7 +5,6 @@
 
 ```
 What's new:
-<<<<<<< HEAD
 
 2018-06-19：
 1.Kown bugs fixed when smartConfig;
@@ -16,9 +15,6 @@ What's new:
 2018-06-16：
 Now SDKs/DEMO APPs/SDK usage manuals for bulbs are available. 
 
-=======
-Now SDK, DEMO APP, and SDK usage manual for bulbs are available. 
->>>>>>> 78557fe898a19bce18e1a3469083c3aed3da7b8a
 ```
 ## 1.Features Overview
 
