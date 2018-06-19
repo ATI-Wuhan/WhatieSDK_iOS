@@ -1,11 +1,20 @@
 
 ![](https://img.shields.io/badge/platform-iOS-red.svg) ![](https://img.shields.io/badge/language-Objective--C-orange.svg) [![CocoaPods compatible](https://img.shields.io/cocoapods/v/WhatieSDK.svg?style=flat)](https://cocoapods.org/pods/WhatieSDK) ![](https://img.shields.io/badge/license-MIT%20License-brightgreen.svg)  
 
-## WahtieSDK Version 1.1.8 updated at 2018-06-16
+## WahtieSDK Version 1.1.9 updated at 2018-06-19
 
 ```
 What's new:
+
+2018-06-19：
+1.Kown bugs fixed when smartConfig;
+2.SDK has added stop smartConfig function;
+3.SDK has sent notification once device was Offline;
+4.You can get the device Firmware Version by deviceModel.device.version.version as NSString.
+
+2018-06-16：
 Now SDKs/DEMO APPs/SDK usage manuals for bulbs are available. 
+
 ```
 ## 1.Features Overview
 
@@ -300,6 +309,19 @@ The device uses the EHOMESmartConfig singleton function to perform network confi
     }];
 }
 ```
+
+Stop SmartConfig
+
+After smartConfig is started, the app will broadcast the wifi network information continuously (until smartConfig succeeds or times out). To cancel the operation, the ```[[EHOMESmartConfig shareInstance] stopSmartConfig]``` method should be called.
+
+```objc
+-(void)stopSmartConfigAction{
+    
+    [[EHOMESmartConfig shareInstance] stopSmartConfig];
+}
+
+```
+
 
 ### 5.2 Device Init
 After finishing the SmartConfig procedure, the device should be initialized with devId and device name.
