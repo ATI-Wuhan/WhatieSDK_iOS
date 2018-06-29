@@ -9,6 +9,7 @@
 #import "EHOMEBaseObject.h"
 
 @class deviceClock;
+@class Device;
 
 @interface EHOMETimer : EHOMEBaseObject
 
@@ -16,7 +17,6 @@
 @property (nonatomic, strong) deviceClock *deviceClock;
 @property (nonatomic, copy) NSString *finishTimeApp;//定时时间
 @property (nonatomic, assign) int durationTime;//倒计时时间
-
 
 /**
  updateTimerStatus
@@ -34,6 +34,7 @@
 -(void)updateTimerWithLoops:(NSString *)loops
                        time:(NSString *)time
                      status:(BOOL)status
+                        tag:(NSString *)tag
                     success:(successBlock)success
                     failure:(failBlock)failure;
 
@@ -59,5 +60,7 @@
 @property (nonatomic, assign) int timezone;//定时时差
 @property (nonatomic, copy) NSString *dps;
 @property (nonatomic, assign) BOOL deviceStatus;//status
+@property (nonatomic, strong) Device *device;
+@property (nonatomic, copy) NSString *tag;
 
 @end

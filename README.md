@@ -1,10 +1,19 @@
 
 ![](https://img.shields.io/badge/platform-iOS-red.svg) ![](https://img.shields.io/badge/language-Objective--C-orange.svg) [![CocoaPods compatible](https://img.shields.io/cocoapods/v/WhatieSDK.svg?style=flat)](https://cocoapods.org/pods/WhatieSDK) ![](https://img.shields.io/badge/license-MIT%20License-brightgreen.svg)  
 
-## WahtieSDK Version 1.1.9 updated at 2018-06-19
+## WahtieSDK Version 1.2.0 updated at 2018-06-29
 
 ```
 What's new:
+
+2018-06-29：
+1.The status of device will be "Offline" with notification once device was reset manually by holding the power button.
+2.You can get the device Firmware version by "deviceModel.device.version.version" as NSString,such as "V1.0.0".
+3.20s timeout when request by HTTP once the network is bad.
+4.You can assign a custom string identifier named "tag" when add a timer.And you can update timer with "tag" too.Refer to 7.1 Add a timer and 7.2 Update a timer.You can get tag of timer by "self.timer.deviceClock.tag"
+5.Speed of device control has been improved.
+
+History:
 
 2018-06-19：
 1.Kown bugs fixed when smartConfig;
@@ -401,7 +410,7 @@ Set a timer to operate the device on some specific time. Your operation on the d
 
 ```objc
 -(void)addTimer{
-    [self.device addTimerWithLoops:@"your_loops" time:@"your_time" status:@"your_status" success:^(id responseObject) {
+    [self.device addTimerWithLoops:@"your_loops" time:@"your_time" status:@"your_status" tag:@"your_tag" success:^(id responseObject) {
         NSLog(@"add timer success, response = %@", responseObject);
     } failure:^(NSError *error) {
         NSLog(@"add timer failed, error = %@", error);
@@ -413,7 +422,7 @@ Set a timer to operate the device on some specific time. Your operation on the d
 You can update/modify the assigned timer by:
 ```objc
 -(void)updateTimer{
-    [self.device updateTimerWithLoops:@"your_loops" time:@"your_time" status:@"your_status" success:^(id responseObject) {
+    [self.timer updateTimerWithLoops:@"your_loops" time:@"your_time" status:@"your_status" tag:@"your_tag" success:^(id responseObject) {
         NSLog(@"update timer success, response = %@", responseObject);
     } failure:^(NSError *error) {
         NSLog(@"update timer failed, error = %@", error);
