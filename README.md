@@ -422,7 +422,11 @@ Set a timer to operate the device on some specific time. Your operation on the d
 You can update/modify the assigned timer by:
 ```objc
 -(void)updateTimer{
+<<<<<<< HEAD
     [self.timer updateTimerWithLoops:@"your_loops" time:@"your_time" status:@"your_status" tag:@"your_tag" success:^(id responseObject) {
+=======
+    [self.timer updateTimerWithLoops:@"your_loops" time:@"your_time" status:@"your_status" success:^(id responseObject) {
+>>>>>>> aa81b32ea1e670537022e36befedaf3f9bd81e10
         NSLog(@"update timer success, response = %@", responseObject);
     } failure:^(NSError *error) {
         NSLog(@"update timer failed, error = %@", error);
