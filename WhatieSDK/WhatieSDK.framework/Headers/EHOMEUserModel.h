@@ -6,7 +6,9 @@
 //  Copyright © 2018年 IIDreams. All rights reserved.
 //
 
+#import "EHOMEBaseObject.h"
 #import "EHOMEDeviceModel.h"
+#import "EHOMEHomeModel.h"
 
 @class EHOMEPhotoModel;
 
@@ -64,6 +66,7 @@
 
 @property (nonatomic, strong) NSArray <EHOMEDeviceModel *> *sharedDeviceArray;
 
+@property (nonatomic, strong) NSArray <EHOMEHomeModel *> *homeArray;
 
 #pragma mark - Functions
 
@@ -205,6 +208,18 @@
  */
 -(void)syncSharedDeviceWithCloud:(successBlock)success
                          failure:(failBlock)failure;
+
+
+/**
+ syncHomeWithCloud
+ 
+ Using the "syncHomeWithCloud" method will update the user’s home list homeArray.
+ 
+ The success returns the homeArray with <EHOMEHomeModel *> array.
+ 
+ */
+-(void)syncHomeWithCloud:(successBlock)success
+                 failure:(failBlock)failure;
 
 
 /**

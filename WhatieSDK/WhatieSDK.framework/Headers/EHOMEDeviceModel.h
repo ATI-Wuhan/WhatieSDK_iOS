@@ -152,6 +152,9 @@
                            success:(successBlock)success
                            failure:(failBlock)failure;
 
+//light MQTT
+-(void)subscribeTopicOnDeviceSuccess:(successBlock)success;
+
 
 
 @end

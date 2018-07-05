@@ -1,10 +1,13 @@
 
 ![](https://img.shields.io/badge/platform-iOS-red.svg) ![](https://img.shields.io/badge/language-Objective--C-orange.svg) [![CocoaPods compatible](https://img.shields.io/cocoapods/v/WhatieSDK.svg?style=flat)](https://cocoapods.org/pods/WhatieSDK) ![](https://img.shields.io/badge/license-MIT%20License-brightgreen.svg)  
 
-## WahtieSDK Version 1.2.0 updated at 2018-06-29
+## WahtieSDK Version 1.2.1 updated at 2018-07-05
 
 ```
 What's new:
+Known bugs fix about MQTT on phones
+
+History:
 
 2018-06-29：
 1.The status of device will be "Offline" with notification once device was reset manually by holding the power button.
@@ -12,17 +15,6 @@ What's new:
 3.20s timeout when request by HTTP once the network is bad.
 4.You can assign a custom string identifier named "tag" when add a timer.And you can update timer with "tag" too.Refer to 7.1 Add a timer and 7.2 Update a timer.You can get tag of timer by "self.timer.deviceClock.tag"
 5.Speed of device control has been improved.
-
-History:
-
-2018-06-19：
-1.Kown bugs fixed when smartConfig;
-2.SDK has added stop smartConfig function;
-3.SDK has sent notification once device was Offline;
-4.You can get the device Firmware Version by deviceModel.device.version.version as NSString.
-
-2018-06-16：
-Now SDKs/DEMO APPs/SDK usage manuals for bulbs are available. 
 
 ```
 ## 1.Features Overview
