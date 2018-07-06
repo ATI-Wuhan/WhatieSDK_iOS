@@ -23,6 +23,11 @@
 @property (nonatomic, assign) BOOL host;//  true
 @property (nonatomic, assign) BOOL hasCountDown;
 @property (nonatomic, copy) NSString *productName;//RgbLight,Plug
+//Home
+@property (nonatomic, assign) int homeId;
+@property (nonatomic, assign) int roomId;
+@property (nonatomic, copy) NSString *homeName;
+@property (nonatomic, copy) NSString *roomName;
 
 
 

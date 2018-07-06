@@ -68,6 +68,7 @@
 
 @property (nonatomic, strong) NSArray <EHOMEHomeModel *> *homeArray;
 
+
 #pragma mark - Functions
 
 /**
@@ -261,6 +262,26 @@
 
 
 
+/**
+ setCurrentHome
+ 
+ */
+-(void)setCurrentHome:(EHOMEHomeModel *)currentHome;
+
+/**
+ getCurrentHome
+ 
+ */
+-(void)getCurrentHomeSuccess:(successBlock)success
+                     failure:(failBlock)failure;
+
+/**
+ removeCurrentHome
+ 
+ */
+-(void)removeCurrentHome;
+
+-(NSArray <EHOMEDeviceModel *>*)getDevicesByHome:(EHOMEHomeModel *)HomeModel;
 
 
 @end

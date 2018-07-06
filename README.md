@@ -1,13 +1,17 @@
 
 ![](https://img.shields.io/badge/platform-iOS-red.svg) ![](https://img.shields.io/badge/language-Objective--C-orange.svg) [![CocoaPods compatible](https://img.shields.io/cocoapods/v/WhatieSDK.svg?style=flat)](https://cocoapods.org/pods/WhatieSDK) ![](https://img.shields.io/badge/license-MIT%20License-brightgreen.svg)  
 
-## WahtieSDK Version 1.2.1 updated at 2018-07-05
+## WahtieSDK Version 1.2.2 updated at 2018-07-06
 
 ```
 What's new:
-Known bugs fix about MQTT on phones
+
+The crash issue when there is no connection to the server is fixed.
 
 History:
+
+2018-07-05:
+Known bugs fix about MQTT on phones
 
 2018-06-29：
 1.The status of device will be "Offline" with notification once device was reset manually by holding the power button.
