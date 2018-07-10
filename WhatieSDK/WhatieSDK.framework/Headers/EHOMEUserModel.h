@@ -260,6 +260,17 @@
            success:(successBlock)success
            failure:(failBlock)failure;
 
+/**
+ addHomeWithName
+ 
+ add a home with name.
+ 
+ @param name : new home name.
+ 
+ */
+-(void)addNewHomeWithName:(NSString *)name
+                  success:(successBlock)success
+                  failure:(failBlock)failure;
 
 
 /**
@@ -279,9 +290,8 @@
  removeCurrentHome
  
  */
--(void)removeCurrentHome;
++(void)removeCurrentHome;
 
--(NSArray <EHOMEDeviceModel *>*)getDevicesByHome:(EHOMEHomeModel *)HomeModel;
 
 
 @end

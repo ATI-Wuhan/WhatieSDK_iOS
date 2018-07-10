@@ -7,6 +7,8 @@
 //
 
 #import "EHOMEBaseObject.h"
+#import "EHOMEHomeModel.h"
+#import "EHOMERoomModel.h"
 
 
 @interface EHOMESmartConfig : EHOMEBaseObject
@@ -27,6 +29,17 @@
 
 -(void)getStartedWithDevId:(NSString *)devId
                 deviceName:(NSString *)deviceName
+                   success:(successBlock)success
+                   failure:(failBlock)failure;
+
+/**
+ add device into room
+ 
+ */
+-(void)getStartedWithDevId:(NSString *)devId
+                deviceName:(NSString *)deviceName
+                      home:(EHOMEHomeModel *)homeModel
+                      room:(EHOMERoomModel *)roomModel
                    success:(successBlock)success
                    failure:(failBlock)failure;
 

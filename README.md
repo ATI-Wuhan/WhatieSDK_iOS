@@ -1,24 +1,18 @@
 
 ![](https://img.shields.io/badge/platform-iOS-red.svg) ![](https://img.shields.io/badge/language-Objective--C-orange.svg) [![CocoaPods compatible](https://img.shields.io/cocoapods/v/WhatieSDK.svg?style=flat)](https://cocoapods.org/pods/WhatieSDK) ![](https://img.shields.io/badge/license-MIT%20License-brightgreen.svg)  
 
-## WahtieSDK Version 1.2.2 updated at 2018-07-06
+## WahtieSDK Version 1.2.3 updated at 2018-07-10
 
 ```
 What's new:
 
-The crash issue when there is no connection to the server is fixed.
+2018-07-10:
+Known bugs fix about MQTT on phones
 
 History:
 
-2018-07-05:
-Known bugs fix about MQTT on phones
-
-2018-06-29：
-1.The status of device will be "Offline" with notification once device was reset manually by holding the power button.
-2.You can get the device Firmware version by "deviceModel.device.version.version" as NSString,such as "V1.0.0".
-3.20s timeout when request by HTTP once the network is bad.
-4.You can assign a custom string identifier named "tag" when add a timer.And you can update timer with "tag" too.Refer to 7.1 Add a timer and 7.2 Update a timer.You can get tag of timer by "self.timer.deviceClock.tag"
-5.Speed of device control has been improved.
+2018-07-06
+The crash issue when there is no connection to the server is fixed.
 
 ```
 ## 1.Features Overview

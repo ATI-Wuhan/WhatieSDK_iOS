@@ -9,6 +9,7 @@
 #import "EHOMEBaseObject.h"
 
 @class host;
+@class EHomeMemberModel;
 @interface EHOMEHomeModel : EHOMEBaseObject
 
 #pragma mark - Property of HomeModel
@@ -28,18 +29,6 @@
 @property(nonatomic, strong) host *host;
 
 #pragma mark - Functions
-/**
- addHomeWithName
- 
- add a home with name.
- 
- @param name : new home name.
- 
- */
--(void)addNewHomeWithName:(NSString *)name
-                  success:(successBlock)success
-                  failure:(failBlock)failure;
-
 
 /**
  UpdateHomeName
@@ -58,26 +47,26 @@
  transferHome
  
  */
--(void)transferHomeWithtransferEmail:(NSString *)email
-                             success:(successBlock)success
-                             failure:(failBlock)failure;
+-(void)transferHomeWithByEmail:(NSString *)email
+                       success:(successBlock)success
+                       failure:(failBlock)failure;
 
 
 /**
  exitHome
  
  */
--(void)exitHome:(successBlock)success
-        failure:(failBlock)failure;
+-(void)removeHome:(successBlock)success
+          failure:(failBlock)failure;
 
 
 /**
  transferAdmin
  
  */
--(void)transferAdminWithmemberId:(int)memberId
-                         success:(successBlock)success
-                         failure:(failBlock)failure;
+-(void)transferAdminWithMemberModel:(EHomeMemberModel *)memberModel
+                            success:(successBlock)success
+                            failure:(failBlock)failure;
 
 
 /**
@@ -86,9 +75,34 @@
  @param email : new member email.
  
  */
--(void)inviteHomeMemberWithEmail:(NSString *)email
-                         success:(successBlock)success
-                         failure:(failBlock)failure;
+-(void)inviteHomeMemberByEmail:(NSString *)email
+                       success:(successBlock)success
+                       failure:(failBlock)failure;
+
+
+/**
+ syncDeviceByHome
+ 
+ */
+-(void)syncDeviceByHomeSuccess:(successBlock)success
+                       failure:(failBlock)failure;
+
+
+/**
+ syncRoomByHome
+ 
+ */
+-(void)syncRoomByHomeSuccess:(successBlock)success
+                     failure:(failBlock)failure;
+
+
+/**
+ getMemberList
+ 
+ */
+-(void)getHomeMemberSuccess:(successBlock)success
+                    failure:(failBlock)failure;
+
 
 @end
 
@@ -99,27 +113,20 @@
 
 
 @class customer;
-@interface EHhomeMemberModel : EHOMEBaseObject
+@interface EHomeMemberModel : EHOMEBaseObject
+
 @property (nonatomic, assign) BOOL host;
 @property (nonatomic, strong) customer *customer;
 
-/**
- getMemberList
- 
- */
--(void)getMemberWithHomeId:(int)homeId
-                      List:(successBlock)success
-                   failure:(failBlock)failure;
+
 
 /**
  deleteMember
  
  */
--(void)deleteMemberWithHomeId:(int)homeId
-                       hostId:(int)hostId
-                     memberId:(int)memberId
-                      success:(successBlock)success
-            failure:(failBlock)failure;
+-(void)removeMemberFromHome:(EHOMEHomeModel *)homeModel
+                    success:(successBlock)success
+                    failure:(failBlock)failure;
 
 @end
 

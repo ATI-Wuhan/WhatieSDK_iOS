@@ -16,7 +16,7 @@ FOUNDATION_EXPORT const unsigned char WhatieSDKVersionString[];
 
 /**
  
- WhatieSDK Version 1.2.2
+ WhatieSDK Version 1.2.3
  
  */
 
@@ -29,6 +29,7 @@ FOUNDATION_EXPORT const unsigned char WhatieSDKVersionString[];
 #import <WhatieSDK/EHOMEDeviceModel.h>
 #import <WhatieSDK/EHOMETimer.h>
 #import <WhatieSDK/EHOMEHomeModel.h>
+#import <WhatieSDK/EHOMERoomModel.h>
 #import <WhatieSDK/EHOMEMQTTClientManager.h>
 #import <WhatieSDK/EHOMETCPManager.h>
 #import <WhatieSDK/EHOMETcpClient.h>
