@@ -7,6 +7,8 @@
 //
 
 #import "EHOMEBaseObject.h"
+#import "EHOMERoomModel.h"
+#import "EHOMESceneModel.h"
 
 @class host;
 @class EHomeMemberModel;
@@ -103,6 +105,47 @@
 -(void)getHomeMemberSuccess:(successBlock)success
                     failure:(failBlock)failure;
 
+
+/**
+ add new room
+ 
+ */
+-(void)addNewRoomWithName:(NSString *)name
+           roomBackground:(EHOMEBackgroundModel *)roomBackground
+                  success:(successBlock)success
+                  failure:(failBlock)failure;
+
+/**
+ syncSceneByHome
+ 
+ */
+-(void)syncSceneByHomeSuccess:(successBlock)success
+                     failure:(failBlock)failure;
+
+
+/**
+ add new scene
+ 
+ */
+-(void)addSceneWithName:(NSString *)name
+                   time:(NSString *)time
+                  loops:(NSString *)loops
+          deviceIdArray:(NSArray *)deviceIdArray
+          functionArray:(NSArray *)functionArray
+                success:(successBlock)success
+                failure:(failBlock)failure;
+
+
+/**
+ Add new scene by <EHOMEDeviceModel *>actionDeviceArray
+ 
+ */
+-(void)addSceneWithName:(NSString *)name
+                   time:(NSString *)time
+                  loops:(NSString *)loops
+      actionDeviceArray:(NSArray *)actionDeviceArray
+                success:(successBlock)success
+                 failue:(failBlock)failure;
 
 @end
 

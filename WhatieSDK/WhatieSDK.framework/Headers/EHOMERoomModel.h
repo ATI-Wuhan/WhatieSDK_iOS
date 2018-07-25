@@ -29,16 +29,6 @@
                        failure:(failBlock)failure;
 
 /**
- add new room
- 
- */
--(void)addNewRoomWithName:(NSString *)name
-                homeModel:(EHOMEHomeModel *)homeModel
-           roomBackground:(EHOMEBackgroundModel *)roomBackground
-                  success:(successBlock)success
-                  failure:(failBlock)failure;
-
-/**
  update new room name
  
  */
@@ -68,7 +58,7 @@
  get room backgroung list
  
  */
--(void)getRoomBackgroundListSuccess:(successBlock)success
++(void)getRoomBackgroundListSuccess:(successBlock)success
                             failure:(failBlock)failure;
 
 

@@ -15,7 +15,7 @@
 @class Version;
 @class Picture;
 
-@interface EHOMEDeviceModel : EHOMEBaseObject
+@interface EHOMEDeviceModel : EHOMEBaseObject<NSCopying>
 
 @property (nonatomic, strong) Device *device;
 @property (nonatomic, strong) NSArray <Function *> *functionList;
@@ -28,6 +28,10 @@
 @property (nonatomic, assign) int roomId;
 @property (nonatomic, copy) NSString *homeName;
 @property (nonatomic, copy) NSString *roomName;
+
+//status for adding scene with deviceModel
+@property (nonatomic, assign) BOOL sceneActionStatus;
+@property (nonatomic, assign) int sceneClockId;
 
 
 
@@ -167,7 +171,7 @@
 
 
 
-@interface Device : EHOMEBaseObject
+@interface Device : EHOMEBaseObject<NSCopying>
 
 @property (nonatomic, assign) int actived;// = 1;
 @property (nonatomic, copy) NSString *authKey;// = "<null>";
@@ -186,7 +190,7 @@
 @property (nonatomic, strong) Product *product;
 @property (nonatomic, copy) NSString *secKey;// = "<null>";
 @property (nonatomic, assign) int sellerId;// = 14;
-@property (nonatomic, copy) NSString *status;// = "Offline","Normal","Upgrading";
+@property (nonatomic, copy) NSString *status;// = "Offline","Online","FirmwareUpgrading","Unbind";
 @property (nonatomic, copy) NSString *token;// = "<null>";
 @property (nonatomic, assign) long long updateTime;// = 1523522816000;
 @property (nonatomic, assign) int uuid;// = 5;
@@ -239,7 +243,7 @@
 
 
 
-@interface Product : EHOMEBaseObject
+@interface Product : EHOMEBaseObject<NSCopying>
 
 @property (nonatomic, assign) int adminId;// = 14;
 @property (nonatomic, copy) NSString *appId;// = "<null>";
@@ -287,7 +291,7 @@
 
 
 
-@interface Picture : EHOMEBaseObject
+@interface Picture : EHOMEBaseObject<NSCopying>
 
 @property (nonatomic, assign) long long createTime;// = 1522137915000;
 @property (nonatomic, assign) int id;// = 145;

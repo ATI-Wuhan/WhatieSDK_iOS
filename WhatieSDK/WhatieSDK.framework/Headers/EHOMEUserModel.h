@@ -290,7 +290,7 @@
  removeCurrentHome
  
  */
-+(void)removeCurrentHome;
+-(void)removeCurrentHome;
 
 
 

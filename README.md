@@ -1,15 +1,19 @@
 
 ![](https://img.shields.io/badge/platform-iOS-red.svg) ![](https://img.shields.io/badge/language-Objective--C-orange.svg) [![CocoaPods compatible](https://img.shields.io/cocoapods/v/WhatieSDK.svg?style=flat)](https://cocoapods.org/pods/WhatieSDK) ![](https://img.shields.io/badge/license-MIT%20License-brightgreen.svg)  
 
-## WahtieSDK Version 1.2.3 updated at 2018-07-10
+## WahtieSDK Version 1.2.4 updated at 2018-07-25
 
 ```
 What's new:
 
-2018-07-10:
-Known bugs fix about MQTT on phones
+2018-07-25：
+Register and Login API has been fixed,the new user should register first.
+
 
 History:
+
+2018-07-10:
+Known bugs fix about MQTT on phones
 
 2018-07-06
 The crash issue when there is no connection to the server is fixed.
