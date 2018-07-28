@@ -1,16 +1,19 @@
 
 ![](https://img.shields.io/badge/platform-iOS-red.svg) ![](https://img.shields.io/badge/language-Objective--C-orange.svg) [![CocoaPods compatible](https://img.shields.io/cocoapods/v/WhatieSDK.svg?style=flat)](https://cocoapods.org/pods/WhatieSDK) ![](https://img.shields.io/badge/license-MIT%20License-brightgreen.svg)  
 
-## WahtieSDK Version 1.2.6 updated at 2018-07-27
+## WahtieSDK Version 1.2.7 updated at 2018-07-28
 
 ```
 What's new:
 
-2018-07-27：
+2018-07-28：
 Update some of the information returned.
 
 
 History:
+
+2018-07-27：
+Update some of the information returned.
 
 2018-07-25：
 Register and Login API has been fixed,the new user should register first.

@@ -60,7 +60,7 @@
 @class EHOMEPhotoModel;
 @interface scene : EHOMEBaseObject
 @property (nonatomic, assign) int id;//场景id
-@property (nonatomic, copy) NSString *type;
+@property (nonatomic, assign) int type;//manual or timing
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, assign) int homeId;
 @property (nonatomic, assign) BOOL status;

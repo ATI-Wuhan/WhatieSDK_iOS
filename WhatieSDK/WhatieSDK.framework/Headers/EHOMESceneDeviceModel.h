@@ -14,6 +14,7 @@
 @property(nonatomic, assign) int clockId;
 @property (nonatomic, copy) NSString *dps;
 @property(nonatomic, assign) BOOL success;
+@property (nonatomic, copy) NSString *roomName;
 
 /**
  reset failure scene device
