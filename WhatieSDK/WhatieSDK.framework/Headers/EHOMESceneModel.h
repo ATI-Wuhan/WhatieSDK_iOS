@@ -27,6 +27,7 @@
                deviceIds:(NSArray *)deviceIds
            functionArray:(NSArray *)functionArray
           sceneDeviceIds:(NSArray *)sceneDeviceIds
+               sceneType:(BOOL)isManual
                  success:(successBlock)success
                  failure:(failBlock)failure;
 
@@ -46,6 +47,14 @@
 -(void)updateSceneStatus:(BOOL)status
                  success:(successBlock)success
                  failure:(failBlock)failure;
+
+
+/**
+ execute manual Scene
+ 
+ */
+-(void)executeManualScene:(successBlock)success
+                  failure:(failBlock)failure;
 
 
 /**

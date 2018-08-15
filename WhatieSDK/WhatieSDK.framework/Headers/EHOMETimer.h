@@ -35,6 +35,7 @@
                        time:(NSString *)time
                      status:(BOOL)status
                         tag:(NSString *)tag
+                 deviceType:(BOOL)isOutlet
                     success:(successBlock)success
                     failure:(failBlock)failure;
 

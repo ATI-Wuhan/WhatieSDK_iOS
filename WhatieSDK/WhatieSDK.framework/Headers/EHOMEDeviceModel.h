@@ -30,8 +30,8 @@
 @property (nonatomic, copy) NSString *roomName;
 
 //status for adding scene with deviceModel
-@property (nonatomic, assign) BOOL sceneActionStatus;
-@property (nonatomic, assign) int sceneClockId;
+@property (nonatomic, strong) NSDictionary *sceneActionDic;
+@property (nonatomic, assign) int sceneDeviceId;
 
 
 
@@ -97,6 +97,7 @@
                     time:(NSString *)time
                   status:(BOOL)status
                      tag:(NSString *)tag
+              deviceType:(BOOL)isOutlet
                  success:(successBlock)success
                  failure:(failBlock)failure;
 

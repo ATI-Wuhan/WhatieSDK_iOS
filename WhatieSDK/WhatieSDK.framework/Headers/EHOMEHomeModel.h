@@ -132,6 +132,7 @@
                   loops:(NSString *)loops
           deviceIdArray:(NSArray *)deviceIdArray
           functionArray:(NSArray *)functionArray
+               sceneTye:(BOOL)isManual
                 success:(successBlock)success
                 failure:(failBlock)failure;
 
