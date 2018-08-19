@@ -14,6 +14,7 @@
 @class Product;
 @class Version;
 @class Picture;
+@class EHOMEUserModel;
 
 @interface EHOMEDeviceModel : EHOMEBaseObject<NSCopying>
 
@@ -32,6 +33,9 @@
 //status for adding scene with deviceModel
 @property (nonatomic, strong) NSDictionary *sceneActionDic;
 @property (nonatomic, assign) int sceneDeviceId;
+
+//sharing
+@property (nonatomic, strong) EHOMEUserModel *customer;
 
 
 
@@ -60,6 +64,18 @@
                 success:(successBlock)success
                 failure:(failBlock)failure;
 
+
+/**
+ UpdateRoomName
+ 
+ update room name with name.
+ 
+ @param name : new room name.
+ 
+ */
+-(void)updateRoomName:(NSString *)name
+              success:(successBlock)success
+              failure:(failBlock)failure;
 
 
 /**

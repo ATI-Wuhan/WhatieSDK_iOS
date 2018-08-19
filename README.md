@@ -1,21 +1,20 @@
 
 ![](https://img.shields.io/badge/platform-iOS-red.svg) ![](https://img.shields.io/badge/language-Objective--C-orange.svg) [![CocoaPods compatible](https://img.shields.io/cocoapods/v/WhatieSDK.svg?style=flat)](https://cocoapods.org/pods/WhatieSDK) ![](https://img.shields.io/badge/license-MIT%20License-brightgreen.svg)  
 
-## WahtieSDK Version 1.2.8 updated at 2018-08-15
+## WahtieSDK Version 1.2.9 updated at 2018-08-19
 
 ```
 What's new:
 
-2018-08-15：
-"Unable to update device status" may not be appear if mobile network well.
-
+2018-08-19：
+Rename room of device.Please refer to 6.6.
 
 History:
 
-2018-07-28：
-Update some of the information returned.
+2018-08-15：
+"Unable to update device status" may not be appear if mobile network well.
 
-2018-07-27：
+2018-07-28：
 Update some of the information returned.
 
 2018-07-25：
@@ -393,6 +392,17 @@ The device can be shared to your friend by:
 
 ### 6.5 Remove shares
 Please refer to 6.3 Remove device.
+
+### 6.6 Rename room of device
+```objc
+-(void)updateDeviceRoomName{
+    [self.device updateRoomName:@"your_room_name" success:^(id responseObject) {
+        //update room name success
+    } failure:^(NSError *error) {
+        //update room name failed
+    }];
+}
+```
 
 
 
