@@ -87,6 +87,17 @@
 -(void)removeDevice:(successBlock)success
             failure:(failBlock)failure;
 
+
+/**
+ changeDeviceRoom
+ 
+ Change the room where the device is located.
+ 
+ */
+-(void)changeDeviceRoomWithRoomId:(int)roomId
+                          success:(successBlock)success
+                          failure:(failBlock)failure;
+
 /**
  shareDeviceByEmail
  
@@ -95,6 +106,25 @@
                   success:(successBlock)success
                   failure:(failBlock)failure;
 
+
+/**
+ recallSharing
+ 
+ */
+-(void)recallSharing:(successBlock)success
+             failure:(failBlock)failure;
+
+
+/**
+ shareDeviceByScancode
+ 
+ */
++(void)sharedDeviceWithAdminUserId:(int)adminUserId
+                      sharedUserId:(int)sharedUserId
+                          deviceId:(int)deviceId
+                         timestamp:(long)timestamp
+                      suucessBlock:(successBlock)successblock
+                         failBlock:(failBlock)failblock;
 
 
 /**
@@ -113,7 +143,7 @@
                     time:(NSString *)time
                   status:(BOOL)status
                      tag:(NSString *)tag
-              deviceType:(BOOL)isOutlet
+               stripMode:(int)mode
                  success:(successBlock)success
                  failure:(failBlock)failure;
 
@@ -132,10 +162,12 @@
  Add a timing countdwon
  
  */
--(void)addTimingCountdownWithDuration:(int)duration
-                               status:(BOOL)status
-                              success:(successBlock)success
-                              failure:(failBlock)failure;
+-(void)addTimingCountdownWithIsPowerStrips:(BOOL)isPowerStrips
+                                   clockId:(int)clockId
+                                  Duration:(int)duration
+                                    status:(BOOL)status
+                                   success:(successBlock)success
+                                   failure:(failBlock)failure;
 
 /**
  getTimingCountdown
@@ -177,6 +209,12 @@
 -(void)updateStreamLightBrightness:(int)brightness
                            success:(successBlock)success
                            failure:(failBlock)failure;
+
+//powerStrip
+-(void)updateStripStatusMode:(int)stripsMode
+                      Status:(BOOL)status
+                     success:(successBlock)success
+                     failure:(failBlock)failure;
 
 //light MQTT
 -(void)subscribeTopicOnDeviceSuccess:(successBlock)success;
@@ -254,6 +292,9 @@
 @property (nonatomic, copy) NSString *rgb2;
 @property (nonatomic, copy) NSString *rgb3;
 @property (nonatomic, copy) NSString *rgb4;
+
+//only strip
+@property (nonatomic, copy) NSString *stripsPower;
 
 @end
 

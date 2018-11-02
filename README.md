@@ -1,24 +1,24 @@
 
 ![](https://img.shields.io/badge/platform-iOS-red.svg) ![](https://img.shields.io/badge/language-Objective--C-orange.svg) [![CocoaPods compatible](https://img.shields.io/cocoapods/v/WhatieSDK.svg?style=flat)](https://cocoapods.org/pods/WhatieSDK) ![](https://img.shields.io/badge/license-MIT%20License-brightgreen.svg)  
 
-## WahtieSDK Version 1.2.9 updated at 2018-08-19
+## WahtieSDK Version 1.3.0 updated at 2018-11-02
 
 ```
 What's new:
 
-2018-08-19：
-Rename room of device.Please refer to 6.6.
+2018-11-02：
+APIs for Incandescent Light have been published.Please refer to 6 and 7 and 9.2.
 
 History:
+
+2018-08-19：
+Rename room of device.Please refer to 6.6.
 
 2018-08-15：
 "Unable to update device status" may not be appear if mobile network well.
 
 2018-07-28：
 Update some of the information returned.
-
-2018-07-25：
-Register and Login API has been fixed,the new user should register first.
 
 ```
 ## 1.Features Overview
@@ -346,7 +346,7 @@ After finishing the SmartConfig procedure, the device should be initialized with
 You can turn on/off the device by the following method:
 ```objc
 -(void)updateDeviceStatus:(BOOL)status{
-    [seld.device updateDeviceStatus:@"your_status" success:^(id responseObject) {
+    [self.device updateDeviceStatus:@"your_status" success:^(id responseObject) {
         NSLog(@"update device status success. res = %@", responseObject);
     } failure:^(NSError *error) {
         NSLog(@"update device status failed. error = %@", error);
