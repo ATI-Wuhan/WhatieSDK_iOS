@@ -443,8 +443,8 @@ Please refer to 6.3 Remove device.
 Set a timer to operate the device on some specific time. Your operation on the device will take effect once the time of the timer arrives.   
 @param loops   
 @param time : the time user set to, like: @"18:57"   
-@param status : the status of the device is to be when timer arrives
-@param tag : the name of the timer
+@param status : the status of the device is to be when timer arrives  
+@param tag : the name of the timer  
 @param stripMode : if the device is not power strip,This parameter is set to int 0
 
 ```objc
@@ -460,7 +460,7 @@ Set a timer to operate the device on some specific time. Your operation on the d
 ```
 
 ### 7.2 Update a timer
-You can update/modify the assigned timer by:
+You can update/modify the assigned timer by:  
 @param deviceType : outlet-set to int 3,rgb light-set to int 2,monochrome light-set to int 6,power strip-set to 5
 ```objc
 -(void)updateTimer{
@@ -515,9 +515,9 @@ Obtain all timers under a specified device by:
 You can create a timing countdown for a specific device.
  
 ### 8.1 Add a timing countdown
-Your operation on the device will take effect once timing countdown is finished. 
-@param IsPowerStrips : if the device is outlet,set to no 
-@param clockId : if the device is outlet,set to int 0 
+Your operation on the device will take effect once timing countdown is finished.  
+@param IsPowerStrips : if the device is outlet,set to no     
+@param clockId : if the device is outlet,set to int 0  
 @param status : the status of the device is to be when countdown is finished   
 @param duration : the duration of timing countdown. The unit is second, such as 10seconds; if 10 minutes, the value is 600.
 
