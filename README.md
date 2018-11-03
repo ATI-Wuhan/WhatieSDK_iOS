@@ -656,8 +656,8 @@ You can update the brightness for a specific smooth/stream light by the followin
 ```
 
 
-### 9.5 Monochrome Light for RGB Light Bulbs
-You can change the brightness for a specific monochrome light for the RGB light bulb by the following method:
+### 9.5 Monochrome/Incandescent Light for RGB Light Bulbs
+You can change the brightness for a specific monochrome/incandescent light for the RGB light bulb by the following method:
 This method is as the same as changing brightness of the monochrome light bulb.
 ```objc
 -(void)brightnessSliderValueChange:(UISlider *)slider{
