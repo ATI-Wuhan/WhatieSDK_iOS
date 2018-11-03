@@ -7,12 +7,12 @@
 What's new:
 
 2018-11-02：
-APIs for Incandescent Light have been published.Please refer to 6 and 7 and 9.2.
+APIs for RGB light and monochrome light bulbs have been published. Please refer to 6 and 7 and 9.2.
 
 History:
 
 2018-08-19：
-Rename room of device.Please refer to 6.6.
+Rename room of device. Please refer to 6.6.
 
 2018-08-15：
 "Unable to update device status" may not be appear if mobile network well.
@@ -23,7 +23,7 @@ Update some of the information returned.
 ```
 ## 1.Features Overview
 
-WhatieSDK is a SDK provided by ATI TECHNOLOGY (WUHAN) CO.,LTD. for the 3rd party accessing to our ATI IoT cloud platform easily and quickly. Using this SDK, developers can do almost all function points on electrical outlets and RGBW bulbs, such as user registration/login/logout, smart configuration, add/share/remove devices, device control, timing countdown, timer, etc. 
+WhatieSDK is a SDK provided by ATI TECHNOLOGY (WUHAN) CO.,LTD. for the 3rd party accessing to our ATI IoT cloud platform easily and quickly. Using this SDK, developers can do almost all function points on electrical outlets and RGBW or monochrome bulbs, such as user registration/login/logout, smart configuration, add/share/remove devices, device control, timing countdown, timer, etc. 
 
 [![](https://github.com/ATI-Wuhan/WhatieSDKDemo_iOS/blob/master/images/1small.PNG)](https://github.com/ATI-Wuhan/WhatieSDKDemo_iOS/blob/master/images/1.PNG)
 [![](https://github.com/ATI-Wuhan/WhatieSDKDemo_iOS/blob/master/images/2small.PNG)](https://github.com/ATI-Wuhan/WhatieSDKDemo_iOS/blob/master/images/2.PNG)
@@ -337,7 +337,7 @@ Monitoring Mqtt messages while performing network configuration.When protocal is
 
 Stop SmartConfig
 
-After smartConfig is started, the app will broadcast the wifi network information continuously (until smartConfig succeeds or times out). To cancel the operation, the ```[[EHOMESmartConfig shareInstance] stopSmartConfig]``` method should be called.
+After smartConfig is started, the app will broadcast the WiFi network information continuously (until smartConfig succeeds or times out). To cancel the operation, the ```[[EHOMESmartConfig shareInstance] stopSmartConfig]``` method should be called.
 
 ```objc
 -(void)stopSmartConfigAction{
@@ -548,15 +548,15 @@ Get a timing countdown under a specific device, and then, you can show its value
 Once you update a timing countdown, it will become a new one. Please refer to 8.1 Add a timing countdown.
 
 
-## 9. Light/Bulbs
+## 9. Monochrome Light and RGB Light Bulbs
 
 ### 9.1 On/Off
 
 Please refer to Chapter 6.1 On/Off the device.
 
 
-### 9.2 Incandescent Light/Bulb
-You can change luminance for a specific light by the following method:
+### 9.2 Monochrome Light Bulbs
+You can change brightness for a specific monochrome light bulb by the following method:
 
 ```objc
 -(void)brightnessSliderValueChange:(UISlider *)slider{
@@ -572,10 +572,10 @@ You can change luminance for a specific light by the following method:
 }
 ```
 
-### 9.3 RGB Light/Bulb
+### 9.3 RGB Light Bulbs
 
-#### 9.3.1 Update RGB Light/Bulb Color
-You can update the color for a specific RGB ligth/bulb by the following method:
+#### 9.3.1 Update RGB Light Bulb Color
+You can update the color for a specific RGB light bulb by the following method:
 
 ```objc
 -(void)updateRGBLightColor{
@@ -591,8 +591,8 @@ You can update the color for a specific RGB ligth/bulb by the following method:
 }
 ```
 
-#### 9.3.2 Update RGB Light/Bulb Luminance
-You can update luminance for a specific RGB light/bulb by the following method:
+#### 9.3.2 Update RGB Light Bulb Brightness
+You can update the brightness for a specific RGB light bulb by the following method:
 
 ```objc
 -(void)rgbBrightnessSliderValueChange:(UISlider *)slider{
@@ -608,10 +608,10 @@ You can update luminance for a specific RGB light/bulb by the following method:
 ```
 
 
-### 9.4 Stream Light
+### 9.4 Smooth/Stream Light Mode for the RGB Light Bulbs
 
-#### 9.4.1 Update Stream Light Color
-You can update the color for a specific stream light by the following method:
+#### 9.4.1 Update Smooth/Stream Light Color
+You can update the color for a specific smooth/stream light by the following method:
 
 ```objc
 -(void)updateStreamLightColor{
@@ -625,8 +625,8 @@ You can update the color for a specific stream light by the following method:
 }
 ```
 
-#### 9.4.2 Update Stream Light Duration
-You can update the time duration for a specific stream light by the following method:
+#### 9.4.2 Update Smooth/Stream Light Duration
+You can update the time duration for a specific smooth/stream light by the following method:
 
 ```objc
 -(void)updateStreamLightDuration{
@@ -641,8 +641,8 @@ You can update the time duration for a specific stream light by the following me
 }
 ```
 
-#### 9.4.3 Update Stream Light Luminance
-You can update luminance for a specific stream light by the following method:
+#### 9.4.3 Update Smooth/Stream Light Brightness
+You can update the brightness for a specific smooth/stream light by the following method:
 
 ```objc
 -(void)updateStreamLightBrightness{
@@ -656,9 +656,9 @@ You can update luminance for a specific stream light by the following method:
 ```
 
 
-### 9.5 Monochrome Light
-You can change luminance for a specific monochrome light by the following method:
-This method is the same as changing luminance incandescent light.
+### 9.5 Monochrome Light for RGB Light Bulbs
+You can change the brightness for a specific monochrome light for the RGB light bulb by the following method:
+This method is as the same as changing brightness of the monochrome light bulb.
 ```objc
 -(void)brightnessSliderValueChange:(UISlider *)slider{
     
