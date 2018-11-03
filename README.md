@@ -298,21 +298,41 @@ The user can logout the APP by the method as below:
 The device uses the EHOMESmartConfig singleton function to perform network configuration as below:
 ```objc
 -(void)smartConfig{
-    [[EHOMESmartConfig shareInstance] startSmartConfigWithSsid:@"your_ssid" bssid:@"your_bssid" password:@"your_wifi_password" success:^(id responseObject) {
+    [[EHOMESmartConfig shareInstance] startSmartConfigWithSsid:ssid bssid:bssid password:password success:^(id responseObject) {
         NSLog(@"Smart config success = %@", responseObject);
-
-        NSInteger protocol = [[responseObject objectForKey:@"protocol"] integerValue];
-        //if protocol == 9,it’s your device;else,the device is other’s,you can get the eamil
-        if (protocol == 9) {
-            //success
-        }else{
-            //the device is other's
-            NSString *email = [[responseObject objectForKey:@"data"] objectForKey:@"email"];
-        }
+        
+        //Operation of smart config success
+        self.isSmartconfig = YES;
+        
     } failure:^(NSError *error) {
         NSLog(@"Smart config failed = %@", error);
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+        
+            //Operation of smart config success
+            [self showFailAlert];
+        });
     }];
-}
+```
+Monitoring Mqtt messages while performing network configuration.When protocal is equal to 9,the device registered successfully.Only registered devices can be used.The method of monitoring Mqtt messages is as follows:
+```objc
+[[EHOMEMQTTClientManager shareInstance] setMqttBlock:^(NSString *topic, NSData *data) {
+        NSDictionary *MQTTMessage = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        
+        if ([[MQTTMessage allKeys] containsObject:@"protocol"]) {
+            NSInteger protocol = [[MQTTMessage objectForKey:@"protocol"] integerValue];
+            
+            if (protocol == 10) {
+                
+            }else if (protocol == 9) {
+                //if protocol == 9,device registered successful.
+                
+                //Operation of registration success
+                self.isRegister = YES;
+                
+            }
+        }
+    }];
 ```
 
 Stop SmartConfig
@@ -390,10 +410,20 @@ The device can be shared to your friend by:
 }
 ```
 
-### 6.5 Remove shares
+### 6.5 Share device by scan code
+This method should be called when scanning the QR code.
+```objc
+[EHOMEDeviceModel sharedDeviceWithAdminUserId:[shareUerIdStr intValue] sharedUserId:[EHOMEUserModel getCurrentUser].id deviceId:[shareDeviceIdStr intValue] timestamp:dTime suucessBlock:^(id responseObject) {
+    NSLog(@"share device success = %@", responseObject);
+} failBlock:^(NSError *error) {
+    NSLog(@"share device failed = %@", error);
+}];
+```
+
+### 6.6 Remove shares
 Please refer to 6.3 Remove device.
 
-### 6.6 Rename room of device
+### 6.7 Rename room of device
 ```objc
 -(void)updateDeviceRoomName{
     [self.device updateRoomName:@"your_room_name" success:^(id responseObject) {
@@ -412,14 +442,18 @@ Please refer to 6.3 Remove device.
 ### 7.1 Add a timer
 Set a timer to operate the device on some specific time. Your operation on the device will take effect once the time of the timer arrives.   
 @param loops   
-@param finishTime : the time user set to, like: @"18:57"   
+@param time : the time user set to, like: @"18:57"   
 @param status : the status of the device is to be when timer arrives
+@param tag : the name of the timer
+@param stripMode : if the device is not power strip,This parameter is set to int 0
 
 ```objc
 -(void)addTimer{
-    [self.device addTimerWithLoops:@"your_loops" time:@"your_time" status:@"your_status" tag:@"your_tag" success:^(id responseObject) {
+    [self.device addTimerWithLoops:loops time:self.time status:self.status tag:self.tag stripMode:self.stripType success:^(id responseObject) {
         NSLog(@"add timer success, response = %@", responseObject);
+            
     } failure:^(NSError *error) {
+        
         NSLog(@"add timer failed, error = %@", error);
     }];
 }
@@ -427,9 +461,10 @@ Set a timer to operate the device on some specific time. Your operation on the d
 
 ### 7.2 Update a timer
 You can update/modify the assigned timer by:
+@param deviceType : outlet-set to int 3,rgb light-set to int 2,monochrome light-set to int 6,power strip-set to 5
 ```objc
 -(void)updateTimer{
-    [self.timer updateTimerWithLoops:@"your_loops" time:@"your_time" status:@"your_status" tag:@"your_tag" success:^(id responseObject) {
+    [self.timer updateTimerWithLoops:loops time:self.time status:self.status tag:self.tag deviceType:self.device.device.product.productType success:^(id responseObject) {
         NSLog(@"update timer success, response = %@", responseObject);
     } failure:^(NSError *error) {
         NSLog(@"update timer failed, error = %@", error);
@@ -480,16 +515,17 @@ Obtain all timers under a specified device by:
 You can create a timing countdown for a specific device.
  
 ### 8.1 Add a timing countdown
-Your operation on the device will take effect once timing countdown is finished.   
+Your operation on the device will take effect once timing countdown is finished. 
+@param IsPowerStrips : if the device is outlet,set to no 
+@param clockId : if the device is outlet,set to int 0 
 @param status : the status of the device is to be when countdown is finished   
 @param duration : the duration of timing countdown. The unit is second, such as 10seconds; if 10 minutes, the value is 600.
 
 ```objc
 -(void)addTimingCountdown{
-    [self.device addTimingCountdownWithDuration:"your_duration" status:"your_status" success:^(id responseObject) {
+    [self.device addTimingCountdownWithIsPowerStrips:false clockId:0 Duration:duration status:!isOn success:^(id responseObject) {
         NSLog(@"add timing countdown success. res = %@", responseObject);
-        int duration = [[responseObject objectForKey:@"duration"] intValue];
-    } failure:^(NSError *error) {            
+    } failure:^(NSError *error) {
         NSLog(@"add timing countdown failed. error = %@", error);
     }];
 }
@@ -620,8 +656,22 @@ You can update luminance for a specific stream light by the following method:
 ```
 
 
+### 9.5 Monochrome Light
+You can change luminance for a specific monochrome light by the following method:
+This method is the same as changing luminance incandescent light.
+```objc
+-(void)brightnessSliderValueChange:(UISlider *)slider{
+    
+    NSLog(@"brightness slider value = %f", slider.value);
 
-
+    
+    [self.device updateIncandescentLightBrightness:(int)slider.value success:^(id responseObject) {
+        
+    } failure:^(NSError *error) {
+        
+    }];    
+}
+```
 
 
 ## Welcome to contact us:
