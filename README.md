@@ -480,7 +480,6 @@ Set a timer to operate the device on some specific time. Your operation on the d
 
 ### 7.2 Update a timer
 You can update/modify the assigned timer by:  
-@param deviceType : outlet-set to int 3,rgb light-set to int 2,monochrome light-set to int 6,power strip-set to 5
 ```objc
 -(void)updateTimer{
     [self.timer updateTimerWithLoops:loops time:self.time status:self.status tag:self.tag deviceType:self.device.device.product.productType success:^(id responseObject) {
