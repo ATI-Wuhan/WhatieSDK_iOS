@@ -309,7 +309,7 @@ The device uses the EHOMESmartConfig singleton function to perform network confi
         
         //Operation of smart config success
         
-        //Note:Congratulations！Your device has been connected to Wifi.But it could not work until it is registered.
+        //Note:Congratulations！Your device has been connected to Wifi.But it could not be work until it is registered.
         Then,you should monitor the MQTT message in function named "viewDidload".
         
         self.isSmartconfig = YES;
