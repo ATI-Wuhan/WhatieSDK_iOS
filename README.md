@@ -13,7 +13,7 @@ We are very sorry about the wifi connection issues!
 In order to find the problem and improve SDK,monitoring MQTT message of smartConfig is necessary.
 Please refer to 5.1 and Note.
 
-2.Some of APIs for timer and Countdown have been changed,including adding a timer,updating a timer and adding a timing countdown.Please refer to 7.1 and 7.2 and 8.1.
+2.Some of APIs for timer and Countdown have been changed,including adding a timer and adding a timing countdown.Please refer to 7.1 and 8.1.
 
 3.APIs for RGB light and monochrome light bulbs have been published. Please refer to 6 and 7 and 9.2.
 
@@ -534,6 +534,7 @@ You can create a timing countdown for a specific device.
  
 ### 8.1 Add a timing countdown
 Your operation on the device will take effect once timing countdown is finished.  
+Light has no timing and countdown function.
 @param IsPowerStrips : if the device is outlet,set to no     
 @param clockId : if the device is outlet,set to int 0  
 @param status : the status of the device is to be when countdown is finished   
