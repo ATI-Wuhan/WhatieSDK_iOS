@@ -7,7 +7,11 @@
 What's new:
 
 2018-11-02：
-APIs for RGB light and monochrome light bulbs have been published. Please refer to 6 and 7 and 9.2.
+
+1.smartConfig：
+We are very sorry about the wifi connection issues!In order to find the problem and improve SDK,monitoring MQTT message of smartConfig is necessary.Please refer to 5.1 and Note.
+
+2.APIs for RGB light and monochrome light bulbs have been published. Please refer to 6 and 7 and 9.2.
 
 History:
 
@@ -302,6 +306,10 @@ The device uses the EHOMESmartConfig singleton function to perform network confi
         NSLog(@"Smart config success = %@", responseObject);
         
         //Operation of smart config success
+        
+        //Note:Congratulations！Your device has been connected to Wifi.But it could not work until it is registered.
+        Then,you should monitor the MQTT message in function named "viewDidload".
+        
         self.isSmartconfig = YES;
         
     } failure:^(NSError *error) {
@@ -309,13 +317,19 @@ The device uses the EHOMESmartConfig singleton function to perform network confi
         
         dispatch_async(dispatch_get_main_queue(), ^{
         
-            //Operation of smart config success
+            //Operation of smart config failed
             [self showFailAlert];
         });
     }];
 ```
-Monitoring Mqtt messages while performing network configuration.When protocal is equal to 9,the device registered successfully.Only registered devices can be used.The method of monitoring Mqtt messages is as follows:
+**Note:**
+You should monitor MQTT messages in "viewDidLoad" while smartConfig.After smartConfig success,the device will start to register.If protocal of MQTT message is equal to 9,the device registered successfully and it can be used.The method of monitoring MQTT messages is as follows:
 ```objc
+-(void)viewDidLoad{
+
+/*you code*/
+
+//smartConfig
 [[EHOMEMQTTClientManager shareInstance] setMqttBlock:^(NSString *topic, NSData *data) {
         NSDictionary *MQTTMessage = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
         
@@ -333,6 +347,7 @@ Monitoring Mqtt messages while performing network configuration.When protocal is
             }
         }
     }];
+}
 ```
 
 Stop SmartConfig
