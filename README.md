@@ -9,7 +9,9 @@ What's new:
 2018-11-02：
 
 1.smartConfig：
-We are very sorry about the wifi connection issues!In order to find the problem and improve SDK,monitoring MQTT message of smartConfig is necessary.Please refer to 5.1 and Note.
+We are very sorry about the wifi connection issues!
+In order to find the problem and improve SDK,monitoring MQTT message of smartConfig is necessary.
+Please refer to 5.1 and Note.
 
 2.APIs for RGB light and monochrome light bulbs have been published. Please refer to 6 and 7 and 9.2.
 
