@@ -13,7 +13,9 @@ We are very sorry about the wifi connection issues!
 In order to find the problem and improve SDK,monitoring MQTT message of smartConfig is necessary.
 Please refer to 5.1 and Note.
 
-2.APIs for RGB light and monochrome light bulbs have been published. Please refer to 6 and 7 and 9.2.
+2.Some of APIs for timer and Countdown have been changed,including adding a timer,updating a timer and adding a timing countdown.Please refer to 7.1 and 7.2 and 8.1.
+
+3.APIs for RGB light and monochrome light bulbs have been published. Please refer to 6 and 7 and 9.2.
 
 History:
 
